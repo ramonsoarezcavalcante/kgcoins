@@ -29,7 +29,7 @@ class LoyaltyController extends Controller
         $recentTransactions = $this->loyaltyService->getUserRecentTransactions($user, 5);
         $badges = $user->badges()->with('pivot')->get();
         $allTiers = Tier::orderBy('min_points')->get();
-        
+
         // Calculate progress to next tier
         $nextTier = Tier::where('min_points', '>', $user->points)
             ->orderBy('min_points', 'asc')
@@ -89,7 +89,7 @@ class LoyaltyController extends Controller
     public function showRewards(): View
     {
         $user = auth()->user();
-        
+
         // Example rewards structure - you can expand this
         $rewards = [
             [
@@ -230,7 +230,7 @@ class LoyaltyController extends Controller
 
         $callback = function () use ($transactions, $summary, $user) {
             $file = fopen('php://output', 'w');
-            
+
             // BOM for Excel UTF-8 support
             fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
 

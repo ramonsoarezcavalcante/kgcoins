@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control bg-white text-dark" 
+                                <input type="text" class="form-control bg-white text-dark"
                                        id="referralCode" value="{{ $referralCode }}" readonly>
                                 <button class="btn btn-light" type="button" id="copyBtn" onclick="copyToClipboard()">
                                     <i class="fas fa-copy"></i> Copiar
@@ -47,15 +47,15 @@
         <div class="col-lg-12">
             <h5 class="mb-3">Compartilhe via:</h5>
             <div class="d-flex gap-2 flex-wrap">
-                <a href="https://wa.me/?text=Junte-se%20ao%20nosso%20programa%20de%20fidelidade%20com%20meu%20código%20de%20indicação%3A%20{{ $referralCode }}" 
+                <a href="https://wa.me/?text=Junte-se%20ao%20nosso%20programa%20de%20fidelidade%20com%20meu%20código%20de%20indicação%3A%20{{ $referralCode }}"
                    target="_blank" class="btn btn-success">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('/') }}" 
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('/') }}"
                    target="_blank" class="btn btn-primary">
                     <i class="fab fa-facebook"></i> Facebook
                 </a>
-                <a href="https://twitter.com/intent/tweet?text=Confira%20este%20programa%20de%20fidelidade%20com%20meu%20código%3A%20{{ $referralCode }}" 
+                <a href="https://twitter.com/intent/tweet?text=Confira%20este%20programa%20de%20fidelidade%20com%20meu%20código%3A%20{{ $referralCode }}"
                    target="_blank" class="btn btn-info">
                     <i class="fab fa-twitter"></i> Twitter
                 </a>

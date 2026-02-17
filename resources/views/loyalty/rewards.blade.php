@@ -154,15 +154,15 @@
                         <div class="col-md-6">
                             <ul style="list-style: none; padding: 0;">
                                 <li class="mb-2">
-                                    <i class="fas fa-shopping-bag text-primary"></i> 
+                                    <i class="fas fa-shopping-bag text-primary"></i>
                                     <strong>Realize Compras:</strong> Ganhe 1 ponto a cada R$10 gasto
                                 </li>
                                 <li class="mb-2">
-                                    <i class="fas fa-users text-info"></i> 
+                                    <i class="fas fa-users text-info"></i>
                                     <strong>Indique Amigos:</strong> Ganhe 100 pontos por amigo que se registrar
                                 </li>
                                 <li class="mb-2">
-                                    <i class="fas fa-star text-warning"></i> 
+                                    <i class="fas fa-star text-warning"></i>
                                     <strong>Suba de Nível:</strong> Desbloqueie benefícios com cada nível
                                 </li>
                             </ul>
@@ -170,15 +170,15 @@
                         <div class="col-md-6">
                             <ul style="list-style: none; padding: 0;">
                                 <li class="mb-2">
-                                    <i class="fas fa-calendar-alt text-success"></i> 
+                                    <i class="fas fa-calendar-alt text-success"></i>
                                     <strong>Aniversário:</strong> Ganhe bônus especial no seu mês
                                 </li>
                                 <li class="mb-2">
-                                    <i class="fas fa-trophy text-danger"></i> 
+                                    <i class="fas fa-trophy text-danger"></i>
                                     <strong>Desbloqueie Badges:</strong> Complete desafios e ganhe conquistas
                                 </li>
                                 <li class="mb-2">
-                                    <i class="fas fa-gift text-success"></i> 
+                                    <i class="fas fa-gift text-success"></i>
                                     <strong>Promoções:</strong> Participe de eventos especiais
                                 </li>
                             </ul>

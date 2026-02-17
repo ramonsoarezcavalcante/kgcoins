@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrontendController\HomeController;
 use App\Http\Controllers\FrontendController\PageController;
 use App\Http\Controllers\LoyaltyController;
+use App\Http\Controllers\Admin\AdminLoyaltyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,45 @@ Route::middleware(['web'])->group(function () {
             Route::post('claim-reward', 'claimReward')->name('claim');
             Route::get('referral', 'showReferral')->name('referral');
             Route::get('export', 'exportData')->name('export');
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Admin Loyalty Management Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::prefix('admin/loyalty')->name('admin.loyalty.')->controller(AdminLoyaltyController::class)->group(function () {
+            Route::get('dashboard', 'dashboard')->name('dashboard');
+            
+            // Tiers Management
+            Route::prefix('tiers')->name('tiers.')->group(function () {
+                Route::get('/', 'indexTiers')->name('index');
+                Route::get('create', 'createTier')->name('create');
+                Route::post('/', 'storeTier')->name('store');
+                Route::get('{tier}/edit', 'editTier')->name('edit');
+                Route::put('{tier}', 'updateTier')->name('update');
+                Route::delete('{tier}', 'destroyTier')->name('destroy');
+            });
+            
+            // Badges Management
+            Route::prefix('badges')->name('badges.')->group(function () {
+                Route::get('/', 'indexBadges')->name('index');
+                Route::get('create', 'createBadge')->name('create');
+                Route::post('/', 'storeBadge')->name('store');
+                Route::get('{badge}/edit', 'editBadge')->name('edit');
+                Route::put('{badge}', 'updateBadge')->name('update');
+                Route::delete('{badge}', 'destroyBadge')->name('destroy');
+            });
+            
+            // Points Management
+            Route::prefix('points')->name('points.')->group(function () {
+                Route::get('manage', 'managePoints')->name('manage');
+                Route::put('user/{user}', 'updateUserPoints')->name('update');
+                Route::get('transactions', 'viewTransactions')->name('transactions');
+            });
+            
+            // Reports
+            Route::get('export', 'exportReport')->name('export');
         });
     });
 });

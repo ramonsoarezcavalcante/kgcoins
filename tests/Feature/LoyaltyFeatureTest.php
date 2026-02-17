@@ -21,7 +21,7 @@ class LoyaltyFeatureTest extends TestCase
     {
         parent::setUp();
         $this->loyaltyService = new LoyaltyService();
-        
+
         // Seed tiers and badges
         $this->artisan('db:seed', ['--class' => 'Database\Seeders\TierSeeder']);
         $this->artisan('db:seed', ['--class' => 'Database\Seeders\BadgeSeeder']);
@@ -39,7 +39,7 @@ class LoyaltyFeatureTest extends TestCase
 
         $user->refresh();
         $this->assertEquals(50, $user->points);
-        
+
         $transaction = PointsTransaction::where('user_id', $user->id)->first();
         $this->assertNotNull($transaction);
         $this->assertEquals('registration_bonus', $transaction->reason);
@@ -65,7 +65,7 @@ class LoyaltyFeatureTest extends TestCase
     public function test_tier_updates_automatically(): void
     {
         $user = User::factory()->create();
-        
+
         // Add 500 points to reach Prata tier
         $this->loyaltyService->addPoints($user, 500, 'bonus');
 
@@ -82,7 +82,7 @@ class LoyaltyFeatureTest extends TestCase
         $this->assertFalse($user->hasBadge($badge->id));
 
         $this->loyaltyService->addPoints($user, 100, 'bonus');
-        
+
         $user->refresh();
         $this->assertTrue($user->hasBadge($badge->id));
     }
@@ -90,7 +90,7 @@ class LoyaltyFeatureTest extends TestCase
     public function test_points_removal(): void
     {
         $user = User::factory()->create();
-        
+
         $this->loyaltyService->addPoints($user, 100, 'bonus');
         $user->refresh();
         $this->assertEquals(100, $user->points);
@@ -103,7 +103,7 @@ class LoyaltyFeatureTest extends TestCase
     public function test_referral_code_generation(): void
     {
         $user = User::factory()->create();
-        
+
         $this->assertNull($user->referral_code);
 
         $this->loyaltyService->generateReferralCode($user);
@@ -116,7 +116,7 @@ class LoyaltyFeatureTest extends TestCase
     public function test_loyalty_summary(): void
     {
         $user = User::factory()->create();
-        
+
         $this->loyaltyService->addPoints($user, 1000, 'bonus');
         $user->refresh();
 
@@ -130,7 +130,7 @@ class LoyaltyFeatureTest extends TestCase
     public function test_transaction_history(): void
     {
         $user = User::factory()->create();
-        
+
         $this->loyaltyService->addPoints($user, 100, 'bonus', null, 'Test bonus 1');
         $this->loyaltyService->addPoints($user, 50, 'bonus', null, 'Test bonus 2');
 
@@ -143,14 +143,14 @@ class LoyaltyFeatureTest extends TestCase
     public function test_multiple_badge_unlocks(): void
     {
         $user = User::factory()->create();
-        
+
         // Unlock multiple badges
         $this->loyaltyService->addPoints($user, 100, 'bonus'); // Coletor de Pontos
         $this->loyaltyService->addPoints($user, 400, 'bonus'); // Fiel
         $this->loyaltyService->addPoints($user, 4000, 'bonus'); // VIP (Platina)
 
         $user->refresh();
-        
+
         // Should have at least 2 badges (Coletor and Fiel, VIP condition might not be exact)
         $this->assertGreaterThanOrEqual(2, $user->badges()->count());
     }

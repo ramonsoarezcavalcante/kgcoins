@@ -70,10 +70,10 @@
                 <div class="card-body">
                     <h5 class="card-title mb-3">Progresso para o próximo nível</h5>
                     <div class="progress" style="height: 25px;">
-                        <div class="progress-bar bg-success" role="progressbar" 
-                             style="width: {{ $progressPercentage }}%;" 
-                             aria-valuenow="{{ $progressPercentage }}" 
-                             aria-valuemin="0" 
+                        <div class="progress-bar bg-success" role="progressbar"
+                             style="width: {{ $progressPercentage }}%;"
+                             aria-valuenow="{{ $progressPercentage }}"
+                             aria-valuemin="0"
                              aria-valuemax="100">
                             {{ round($progressPercentage, 1) }}%
                         </div>
