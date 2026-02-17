@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\LoyaltyService;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -31,18 +33,39 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/';
 
+    private LoyaltyService $loyaltyService;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(LoyaltyService $loyaltyService)
     {
         $this->middleware('guest');
+        $this->loyaltyService = $loyaltyService;
     }
 
     protected function registered(Request $request, $user)
     {
+        // Generate referral code
+        $this->loyaltyService->generateReferralCode($user);
+
+        // Add registration bonus
+        $this->loyaltyService->addPoints(
+            $user,
+            LoyaltyService::REGISTRATION_BONUS,
+            'registration_bonus',
+            null,
+            'Bônus de boas-vindas ao se registrar na plataforma'
+        );
+
+        // Unlock first badge
+        $badge = \App\Models\Badge::where('name', 'Primeiros Passos')->first();
+        if ($badge) {
+            $this->loyaltyService->unlockBadge($user, $badge);
+        }
+
         session()->flash('success', 'Registration successful! Welcome 🎉');
     }
 

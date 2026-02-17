@@ -13,7 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Seed tiers and badges first
+        $this->call([
+            TierSeeder::class,
+            BadgeSeeder::class,
+        ]);
 
         User::factory()->create([
             'name' => 'Test User',

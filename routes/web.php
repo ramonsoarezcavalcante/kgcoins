@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrontendController\HomeController;
 use App\Http\Controllers\FrontendController\PageController;
+use App\Http\Controllers\LoyaltyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,20 @@ Route::middleware(['web'])->group(function () {
         Route::get('wishlist', [PageController::class, 'wishlist'])->name('wishlist');
         Route::get('checkout', [PageController::class, 'checkout'])->name('checkout');
         Route::get('account', [PageController::class, 'account'])->name('account');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Loyalty & Fidelity Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::prefix('loyalty')->name('loyalty.')->controller(LoyaltyController::class)->group(function () {
+            Route::get('dashboard', 'showDashboard')->name('dashboard');
+            Route::get('transactions', 'getTransactionHistory')->name('transactions');
+            Route::get('rewards', 'showRewards')->name('rewards');
+            Route::post('claim-reward', 'claimReward')->name('claim');
+            Route::get('referral', 'showReferral')->name('referral');
+            Route::get('export', 'exportData')->name('export');
+        });
     });
 });
 
