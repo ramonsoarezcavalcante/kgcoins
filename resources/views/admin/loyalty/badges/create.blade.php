@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Admin - Nova Badge')
 
@@ -140,12 +140,12 @@
 <script>
 function toggleUnlockFields() {
     const unlockType = document.getElementById('unlock_type').value;
-    
-    document.getElementById('points_threshold_field').style.display = 
+
+    document.getElementById('points_threshold_field').style.display =
         unlockType === 'points_threshold' ? 'block' : 'none';
-    document.getElementById('purchase_count_field').style.display = 
+    document.getElementById('purchase_count_field').style.display =
         unlockType === 'purchase_count' ? 'block' : 'none';
-    document.getElementById('tier_reached_field').style.display = 
+    document.getElementById('tier_reached_field').style.display =
         unlockType === 'tier_reached' ? 'block' : 'none';
 }
 

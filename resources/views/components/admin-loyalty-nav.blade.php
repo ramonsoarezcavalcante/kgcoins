@@ -53,14 +53,14 @@
     </div>
 </nav>
 
-<!-- 
+<!--
     Estrutura de View Blade (colocar em layouts/admin.blade.php ou semelhante):
-    
+
     @extends('layouts.app')
-    
+
     @section('content')
         @include('components.admin-loyalty-nav')
-        
+
         <!-- Seu conteúdo aqui -->
         @yield('admin-content')
     @endsection
@@ -72,7 +72,7 @@
         <i class="fas fa-chart-line"></i>
         <span>Dashboard</span>
     </a>
-    
+
     <div class="list-group-item d-flex justify-content-between align-items-center">
         <span><i class="fas fa-layer-group"></i> Tiers</span>
         <i class="fas fa-chevron-down"></i>
@@ -83,7 +83,7 @@
     <a href="{{ route('admin.loyalty.tiers.create') }}" class="list-group-item list-group-item-action ms-3">
         Criar Tier
     </a>
-    
+
     <div class="list-group-item d-flex justify-content-between align-items-center">
         <span><i class="fas fa-medal"></i> Badges</span>
         <i class="fas fa-chevron-down"></i>
@@ -94,7 +94,7 @@
     <a href="{{ route('admin.loyalty.badges.create') }}" class="list-group-item list-group-item-action ms-3">
         Criar Badge
     </a>
-    
+
     <div class="list-group-item d-flex justify-content-between align-items-center">
         <span><i class="fas fa-coins"></i> Pontos</span>
         <i class="fas fa-chevron-down"></i>
@@ -105,7 +105,7 @@
     <a href="{{ route('admin.loyalty.points.transactions') }}" class="list-group-item list-group-item-action ms-3">
         Transações
     </a>
-    
+
     <a href="{{ route('admin.loyalty.export') }}" class="list-group-item list-group-item-action">
         <i class="fas fa-download"></i> Exportar Relatório
     </a>

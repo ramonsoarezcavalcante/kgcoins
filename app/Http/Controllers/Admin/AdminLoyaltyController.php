@@ -169,8 +169,8 @@ class AdminLoyaltyController extends Controller
             ];
 
             if (in_array($validated['unlock_condition_type'], ['points_threshold', 'tier_reached', 'purchases_count'])) {
-                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' : 
-                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')] 
+                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' :
+                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')]
                     = $validated['unlock_condition_value'];
             }
         }
@@ -216,8 +216,8 @@ class AdminLoyaltyController extends Controller
             ];
 
             if (in_array($validated['unlock_condition_type'], ['points_threshold', 'tier_reached', 'purchases_count'])) {
-                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' : 
-                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')] 
+                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' :
+                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')]
                     = $validated['unlock_condition_value'];
             }
         }
@@ -269,7 +269,7 @@ class AdminLoyaltyController extends Controller
 
         if ($pointsChange !== 0) {
             $reason = $pointsChange > 0 ? 'bonus' : 'adjustment';
-            
+
             $this->loyaltyService->addPoints(
                 $user,
                 abs($pointsChange),

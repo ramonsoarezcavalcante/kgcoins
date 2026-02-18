@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Admin - Editar Tier')
 
@@ -16,7 +16,7 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome do Tier *</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
                                    id="name" name="name" value="{{ old('name', $tier->name) }}" required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -26,8 +26,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="min_points" class="form-label">Pontos Mínimos *</label>
-                                <input type="number" class="form-control @error('min_points') is-invalid @enderror" 
-                                       id="min_points" name="min_points" value="{{ old('min_points', $tier->min_points) }}" 
+                                <input type="number" class="form-control @error('min_points') is-invalid @enderror"
+                                       id="min_points" name="min_points" value="{{ old('min_points', $tier->min_points) }}"
                                        min="0" required>
                                 @error('min_points')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -36,9 +36,9 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="discount_percentage" class="form-label">Desconto (%) *</label>
-                                <input type="number" class="form-control @error('discount_percentage') is-invalid @enderror" 
-                                       id="discount_percentage" name="discount_percentage" 
-                                       value="{{ old('discount_percentage', $tier->discount_percentage) }}" 
+                                <input type="number" class="form-control @error('discount_percentage') is-invalid @enderror"
+                                       id="discount_percentage" name="discount_percentage"
+                                       value="{{ old('discount_percentage', $tier->discount_percentage) }}"
                                        min="0" max="100" step="0.01" required>
                                 @error('discount_percentage')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -49,9 +49,9 @@
                         <div class="mb-3">
                             <label for="color" class="form-label">Cor (Hexadecimal) *</label>
                             <div class="input-group">
-                                <input type="color" class="form-control form-control-color @error('color') is-invalid @enderror" 
+                                <input type="color" class="form-control form-control-color @error('color') is-invalid @enderror"
                                        id="color" name="color" value="{{ old('color', $tier->color) }}" required>
-                                <input type="text" class="form-control @error('color') is-invalid @enderror" 
+                                <input type="text" class="form-control @error('color') is-invalid @enderror"
                                        id="colorText" value="{{ old('color', $tier->color) }}">
                             </div>
                             @error('color')
@@ -61,7 +61,7 @@
 
                         <div class="mb-3">
                             <label for="benefits" class="form-label">Benefícios (um por linha)</label>
-                            <textarea class="form-control @error('benefits') is-invalid @enderror" 
+                            <textarea class="form-control @error('benefits') is-invalid @enderror"
                                       id="benefits" name="benefits" rows="5">{{ old('benefits', implode("\n", $tier->benefits ?? [])) }}</textarea>
                             <small class="form-text text-muted">Digite cada benefício em uma linha separada</small>
                             @error('benefits')
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="alert alert-info" role="alert">
-                            <i class="fas fa-info-circle"></i> 
+                            <i class="fas fa-info-circle"></i>
                             <strong>Usuários neste Tier:</strong> {{ $tier->users()->count() }}
                         </div>
 

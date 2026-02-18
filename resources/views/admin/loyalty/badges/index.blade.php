@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Admin - Gerenciar Badges')
 
@@ -14,13 +14,6 @@
             </a>
         </div>
     </div>
-
-    @if($message = session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle"></i> {{ $message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @endif
 
     <div class="row">
         <div class="col-lg-12">

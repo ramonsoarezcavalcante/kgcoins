@@ -90,7 +90,7 @@ Route::middleware(['web'])->group(function () {
         */
         Route::prefix('admin/loyalty')->name('admin.loyalty.')->controller(AdminLoyaltyController::class)->group(function () {
             Route::get('dashboard', 'dashboard')->name('dashboard');
-            
+
             // Tiers Management
             Route::prefix('tiers')->name('tiers.')->group(function () {
                 Route::get('/', 'indexTiers')->name('index');
@@ -100,7 +100,7 @@ Route::middleware(['web'])->group(function () {
                 Route::put('{tier}', 'updateTier')->name('update');
                 Route::delete('{tier}', 'destroyTier')->name('destroy');
             });
-            
+
             // Badges Management
             Route::prefix('badges')->name('badges.')->group(function () {
                 Route::get('/', 'indexBadges')->name('index');
@@ -110,14 +110,14 @@ Route::middleware(['web'])->group(function () {
                 Route::put('{badge}', 'updateBadge')->name('update');
                 Route::delete('{badge}', 'destroyBadge')->name('destroy');
             });
-            
+
             // Points Management
             Route::prefix('points')->name('points.')->group(function () {
                 Route::get('manage', 'managePoints')->name('manage');
                 Route::put('user/{user}', 'updateUserPoints')->name('update');
                 Route::get('transactions', 'viewTransactions')->name('transactions');
             });
-            
+
             // Reports
             Route::get('export', 'exportReport')->name('export');
         });
