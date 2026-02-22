@@ -1,15 +1,15 @@
 @extends('frontend.layouts.app')
-@section('title', 'Shop Details')
+@section('title', 'Detalhes do Produto - KG Coins')
 @section('content')
     <!-- ============================ header area ============================ -->
-    @include('frontend.includes.headers.headerTwo')
+    @include('frontend.includes.headers.headerOne')
     <!-- ============================ header area end ============================ -->
 
     <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="breadcrumb mb-0 py-26 bg-color-one">
+    <div class="mb-0 py-20" style="background:#1a1c28; border-bottom:1px solid rgba(124,58,237,0.15);">
         <div class="container container-lg">
             <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
-                <h6 class="mb-0">Shop Details</h6>
+                <h6 class="mb-0" style="font-family:'Exo',sans-serif; font-weight:700; color:#f1f5f9;">Detalhes do Produto</h6>
                 <ul class="flex-align gap-8 flex-wrap">
                     <li class="text-sm">
                         <a href="{{route('home')}}" class="text-main-600 flex-align gap-8">

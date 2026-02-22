@@ -1,15 +1,15 @@
 @extends('frontend.layouts.app')
-@section('title', 'Register')
+@section('title', 'Cadastro - KG Coins')
 @section('content')
     <!-- ============================ header area ============================ -->
-    @include('frontend.includes.headers.headerTwo')
+    @include('frontend.includes.headers.headerOne')
     <!-- ============================ header area end ============================ -->
 
     <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="breadcrumb mb-0 py-26 bg-main-two-50">
+    <div class="mb-0 py-20" style="background:#1a1c28; border-bottom:1px solid rgba(124,58,237,0.15);">
         <div class="container container-lg">
             <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
-                <h6 class="mb-0">{{ __('Register') }}</h6>
+                <h6 class="mb-0" style="font-family:'Exo',sans-serif; font-weight:700; color:#f1f5f9;">🎮 Criar Conta</h6>
                 <ul class="flex-align gap-8 flex-wrap">
                     <li class="text-sm">
                         <a href="{{route('home')}}" class="text-gray-900 flex-align gap-8 hover-text-main-600">

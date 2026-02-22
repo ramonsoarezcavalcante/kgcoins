@@ -1,5 +1,5 @@
 /* Font Family*/
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Exo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Orbitron:wght@400..900&display=swap');
 
 $colors: (
   "main": (
@@ -196,16 +196,16 @@ $font-sizes: (
 );
 
 /* ========================= Variable Css Start ======================== */
-:root {    
+:root {
 
-  /* Font Family Variable */
-  --heading-font: "Quicksand", sans-serif ;
+  /* Font Family Variable - Gaming Theme */
+  --heading-font: "Orbitron", sans-serif;
   --heading-font-two: "Exo", sans-serif;
-  --heading-font-three: "Outfit", sans-serif;;
-  --heading-font-four: "Dancing Script", cursive;;
+  --heading-font-three: "Rajdhani", sans-serif;
+  --heading-font-four: "Exo", sans-serif;
   --body-font: "Inter", sans-serif;
-  
-  /* Font Size Variable Start */  
+
+  /* Font Size Variable Start */
   --heading-one: clamp(2.25rem, -0.0733rem + 6.3692vw, 4.5rem); // Min:36px - Max:72px
   --heading-two: clamp(2rem, 0.7133rem + 2.8846vw, 3.5rem); // Min: 32px - Max: 56px
   --heading-three: clamp(1.75rem, 0.3353rem + 2.1661vw, 3rem); // Min: 28px - Max: 48px
@@ -217,32 +217,48 @@ $font-sizes: (
   --display-one: clamp(2.5rem, -0.0733rem + 6.3692vw, 7.5rem); // Min:40px - Max:120px
   /* Font Size End */
 
-  /* template main color */
-  --main-h: 196;
-  --main-s: 69%;
-  --main-l: 36%;
+  /* template main color - KGC Brand Purple (#6B5EF0) */
+  /* HSL: hsl(246, 83%, 65%) */
+  --main-h: 246;
+  --main-s: 83%;
+  --main-l: 65%;
   --main: var(--main-h) var(--main-s) var(--main-l);
 
-  /* template main color */
-  --main-two-h: 224;
-  --main-two-s: 71%;
-  --main-two-l: 49%;
+  /* template secondary color - KGC Lighter Purple (#8878F5) */
+  /* HSL: hsl(248, 87%, 72%) */
+  --main-two-h: 248;
+  --main-two-s: 87%;
+  --main-two-l: 72%;
   --main-two: var(--main-two-h) var(--main-two-s) var(--main-two-l);
 
-   /* White Color */
+  /* White / Dark Colors */
   --white: 0 0% 100%;
-  --black: 235 49% 14%;
-  --light: 0 0% 51%;
-  
-  --heading-color: var(--black);
-  --body-color: var(--light);
-  --body-bg: var(--gray);
-  --border-color: 236 13% 77%;
+  --black: 228 22% 11%;
+  --light: 222 15% 60%;
 
-  --bg-color-one: #F3FAF2; 
-  --bg-color-two: #FFFBF4; 
-  --bg-color-three: #F1F1F1; 
-  --neutral: #121535; 
+  --heading-color: 0 0% 98%;
+  --body-color: var(--light);
+  --body-bg: 228 22% 9%;
+  --border-color: 246 40% 28%;
+
+  /* KGC Dark Backgrounds - baseados na logo (#1a1c26) */
+  --bg-color-one: #13141e;
+  --bg-color-two: #1a1c28;
+  --bg-color-three: #1e2030;
+  --neutral: #0e0f17;
+
+  /* KGC Brand Colors - exatamente da logo */
+  --game-bg: #13141e;
+  --game-card-bg: #1e2030;
+  --game-card-border: rgba(107, 94, 240, 0.3);
+  --game-glow: 0 0 20px rgba(107, 94, 240, 0.45);
+  --game-glow-light: 0 0 20px rgba(136, 120, 245, 0.35);
+  --game-accent: #f97316;
+  --game-accent-gold: #f59e0b;
+  --game-purple: #6B5EF0;       /* cor exata do ícone da logo */
+  --game-purple-dark: #4B38CC;  /* versão mais escura */
+  --game-purple-light: #8878F5; /* versão mais clara da logo */
+  --game-purple-hover: #5A4EE0; /* hover state */
 
   --translate-x-middle: translateX(-50%); 
   --translate-y-middle: translateY(-50%); 

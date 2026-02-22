@@ -1,81 +1,134 @@
 @extends('frontend.layouts.app')
-@section('title', 'Index One')
+@section('title', 'KG Coins - Coins para seus Jogos Favoritos')
 @section('content')
 
-    <!-- ============================ header area ================================== -->
+    <!-- ============================ Header ============================ -->
     @include('frontend.includes.headers.headerOne')
-    <!-- ============================ header area end ================================== -->
 
-    <!-- ============================ Banner Section start =============================== -->
-    <div class="banner">
-        <div class="container container-lg">
-            <div class="banner-item rounded-24 overflow-hidden position-relative arrow-center">
-                <a href="#featureSection"
-                    class="scroll-down w-84 h-84 text-center flex-center bg-main-600 rounded-circle border border-5 text-white border-white position-absolute start-50 translate-middle-x bottom-0 hover-bg-main-800">
-                    <span class="icon line-height-0"><i class="ph ph-caret-double-down"></i></span>
-                </a>
-                <img src="{{ asset('assets/images/bg/banner-bg.png') }}" alt="img"
-                    class="banner-img position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 z-n1 object-fit-cover rounded-24">
+    <!-- ============================ HERO BANNER ============================ -->
+    <div class="banner-gaming py-0">
+        <div class="container container-lg py-5">
+            <div class="banner-item rounded-24 overflow-hidden position-relative arrow-center"
+                style="background: linear-gradient(135deg, #13141e 0%, #1c1535 50%, #08101e 100%); min-height: 460px; display:flex; align-items:center;">
 
-                <div class="flex-align">
+                <!-- Glow effects -->
+                <div style="position:absolute; top:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%); pointer-events:none;"></div>
+                <div style="position:absolute; bottom:-50px; right:-50px; width:300px; height:300px; background:radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%); pointer-events:none;"></div>
+
+                <div class="flex-align w-100">
                     <button type="button" id="banner-prev"
-                        class="slick-prev slick-arrow flex-center rounded-circle box-shadow-4xl bg-white text-xl hover-bg-main-600 hover-text-white transition-1">
+                        class="slick-prev slick-arrow flex-center rounded-circle text-xl transition-1"
+                        style="background:rgba(124,58,237,0.2); border:1px solid rgba(124,58,237,0.4); color:#8878F5; width:44px; height:44px;">
                         <i class="ph ph-caret-left"></i>
                     </button>
                     <button type="button" id="banner-next"
-                        class="slick-next slick-arrow flex-center rounded-circle box-shadow-4xl bg-white text-xl hover-bg-main-600 hover-text-white transition-1">
+                        class="slick-next slick-arrow flex-center rounded-circle text-xl transition-1"
+                        style="background:rgba(124,58,237,0.2); border:1px solid rgba(124,58,237,0.4); color:#8878F5; width:44px; height:44px;">
                         <i class="ph ph-caret-right"></i>
                     </button>
                 </div>
 
-                <div class="banner-slider">
-                    <div class="banner-slider__item">
-                        <div class="banner-slider__inner flex-between position-relative">
-                            <div class="banner-item__content">
-                                <span
-                                    class="fw-semibold text-success-600 text-capitalize mb-8 animate-left-right animation-delay-08">Save
-                                    up to 50% off on your first order</span>
-                                <h2 class="banner-item__title max-w-700 mb-30 animate-left-right animation-delay-1">Daily
-                                    Grocery Order and Get <span class="text-main-600">Express</span> Delivery</h2>
-                                <div class="d-flex align-items-center gap-16 animate-left-right animation-delay-12">
-                                    <a href="{{route('shop')}}"
-                                        class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8">
-                                        Explore Shop <span class="icon text-xl d-flex"><i
-                                                class="ph ph-shopping-cart-simple"></i> </span>
+                <div class="banner-slider w-100">
+                    <!-- Slide 1: Diablo 4 -->
+                    <div class="banner-slider__item px-4 px-lg-5 py-5">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <div class="banner-gaming__tag">Gold em até 5 minutos</div>
+                                <h1 class="banner-gaming__title">
+                                    Coins para seus<br><span>Jogos Favoritos</span>
+                                </h1>
+                                <p class="banner-gaming__subtitle">
+                                    Entrega Instantânea &nbsp;·&nbsp; 100% Seguro &nbsp;·&nbsp; Melhor Preço &nbsp;·&nbsp; Suporte 24/7
+                                </p>
+                                <div class="d-flex align-items-center gap-16 flex-wrap">
+                                    <a href="{{ route('shop') }}" class="btn-neon" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                                        <i class="ph ph-shopping-cart-simple"></i> Comprar Agora
                                     </a>
-                                    <div class="d-flex align-items-end gap-8">
-                                        <span class="text-heading fst-italic text-sm">Starting at</span>
-                                        <h6 class="text-danger-600 mb-0"> $60.99</h6>
+                                    <a href="{{ route('shop') }}" class="btn-neon-cyan" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                                        <i class="ph ph-game-controller"></i> Ver Games
+                                    </a>
+                                </div>
+                                <div class="banner-gaming__stats mt-4">
+                                    <div class="banner-gaming__stat">
+                                        <span class="banner-gaming__stat-value">50k+</span>
+                                        <span class="banner-gaming__stat-label">Clientes</span>
+                                    </div>
+                                    <div class="banner-gaming__stat">
+                                        <span class="banner-gaming__stat-value">200+</span>
+                                        <span class="banner-gaming__stat-label">Games</span>
+                                    </div>
+                                    <div class="banner-gaming__stat">
+                                        <span class="banner-gaming__stat-value">5min</span>
+                                        <span class="banner-gaming__stat-label">Entrega</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="banner-item__thumb animate-scale animation-delay-12">
-                                <img src="{{ asset('assets/images/thumbs/banner-img3.png') }}" alt="img">
+                            <div class="col-lg-6 text-center banner-item__thumb animate-scale animation-delay-12">
+                                <div style="position:relative; display:inline-block;">
+                                    <div style="width:320px; height:320px; background:linear-gradient(135deg, #1e2030, #17133a); border-radius:50%; border:2px solid rgba(124,58,237,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 0 60px rgba(124,58,237,0.3);">
+                                        <span style="font-size:8rem;">🔥</span>
+                                    </div>
+                                    <div class="badge-game badge-hot" style="position:absolute; top:20px; right:20px; font-size:0.75rem; padding:6px 12px;">
+                                        DIABLO 4
+                                    </div>
+                                    <div style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(13,15,26,0.9); border:1px solid rgba(124,58,237,0.4); border-radius:10px; padding:8px 16px; white-space:nowrap;">
+                                        <span style="color:#94a3b8; font-size:0.75rem;">Gold a partir de</span>
+                                        <span style="color:#f97316; font-weight:800; font-family:'Exo',sans-serif; font-size:1rem; margin-left:6px;">R$ 4,99</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="banner-slider__item">
-                        <div class="banner-slider__inner flex-between position-relative">
-                            <div class="banner-item__content">
-                                <span
-                                    class="fw-semibold text-success-600 text-capitalize mb-8 animate-left-right animation-delay-08">Save
-                                    up to 50% off on your first order</span>
-                                <h2 class="banner-item__title max-w-700 mb-30 animate-left-right animation-delay-1">Daily
-                                    Grocery Order and Get <span class="text-main-600">Express</span> Delivery</h2>
-                                <div class="d-flex align-items-center gap-16 animate-left-right animation-delay-12">
-                                    <a href="{{route('shop')}}"
-                                        class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8">
-                                        Explore Shop <span class="icon text-xl d-flex"><i
-                                                class="ph ph-shopping-cart-simple"></i> </span>
+
+                    <!-- Slide 2: Path of Exile 2 -->
+                    <div class="banner-slider__item px-4 px-lg-5 py-5">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <div class="banner-gaming__tag">Currency garantida</div>
+                                <h1 class="banner-gaming__title">
+                                    Path of Exile 2<br><span>Currency Shop</span>
+                                </h1>
+                                <p class="banner-gaming__subtitle">
+                                    Exalted Orbs, Divine Orbs, Chaos Orbs &nbsp;·&nbsp; Entrega Rápida
+                                </p>
+                                <div class="d-flex align-items-center gap-16 flex-wrap">
+                                    <a href="{{ route('shop') }}" class="btn-neon" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                                        <i class="ph ph-shopping-cart-simple"></i> Comprar Currency
                                     </a>
-                                    <div class="d-flex align-items-end gap-8">
-                                        <span class="text-heading fst-italic text-sm">Starting at</span>
-                                        <h6 class="text-danger-600 mb-0"> $60.99</h6>
-                                    </div>
+                                    <a href="{{ route('shop') }}" class="btn-neon-cyan" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                                        <i class="ph ph-star"></i> Ofertas
+                                    </a>
                                 </div>
                             </div>
-                            <div class="banner-item__thumb animate-scale animation-delay-12">
-                                <img src="{{ asset('assets/images/thumbs/banner-img1.png') }}" alt="img">
+                            <div class="col-lg-6 text-center">
+                                <div style="width:320px; height:320px; background:linear-gradient(135deg, #1e2030, #0a1a2e); border-radius:50%; border:2px solid rgba(6,182,212,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 0 60px rgba(6,182,212,0.2);">
+                                    <span style="font-size:8rem;">🌌</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: FC 26 -->
+                    <div class="banner-slider__item px-4 px-lg-5 py-5">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <div class="banner-gaming__tag" style="background:rgba(249,115,22,0.15); border-color:rgba(249,115,22,0.4); color:#fb923c;">Melhor preço garantido</div>
+                                <h1 class="banner-gaming__title">
+                                    FC 26 Coins<br><span style="background:linear-gradient(135deg, #fb923c, #f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Preço Top</span>
+                                </h1>
+                                <p class="banner-gaming__subtitle">
+                                    FC Points, Players, SBCs &nbsp;·&nbsp; Bônus de 5% no primeiro pedido
+                                </p>
+                                <div class="d-flex align-items-center gap-16 flex-wrap">
+                                    <a href="{{ route('shop') }}" class="btn-neon" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; background:linear-gradient(135deg,#f97316,#ea580c); box-shadow:0 4px 15px rgba(249,115,22,0.4);">
+                                        <i class="ph ph-shopping-cart-simple"></i> Comprar Agora
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <div style="width:320px; height:320px; background:linear-gradient(135deg, #1e2030, #1a0d00); border-radius:50%; border:2px solid rgba(249,115,22,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 0 60px rgba(249,115,22,0.2);">
+                                    <span style="font-size:8rem;">⚽</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,5699 +136,570 @@
             </div>
         </div>
     </div>
-    <!-- ============================ Banner Section End =============================== -->
+    <!-- ============================ HERO BANNER END ============================ -->
 
-    <!-- ============================ Feature Section start =============================== -->
-    <div class="feature" id="featureSection">
+    <!-- ============================ GAMES STRIP ============================ -->
+    <div class="games-strip" id="featureSection">
         <div class="container container-lg">
             <div class="position-relative arrow-center gradient-shadow">
                 <div class="flex-align">
                     <button type="button" id="feature-item-wrapper-prev"
-                        class="slick-prev slick-arrow flex-center rounded-circle bg-white text-xl hover-bg-main-600 hover-text-white transition-1">
+                        class="slick-prev slick-arrow flex-center rounded-circle text-xl transition-1"
+                        style="background:rgba(124,58,237,0.15); border:1px solid rgba(124,58,237,0.3); color:#8878F5; width:36px; height:36px;">
                         <i class="ph ph-caret-left"></i>
                     </button>
                     <button type="button" id="feature-item-wrapper-next"
-                        class="slick-next slick-arrow flex-center rounded-circle bg-white text-xl hover-bg-main-600 hover-text-white transition-1">
+                        class="slick-next slick-arrow flex-center rounded-circle text-xl transition-1"
+                        style="background:rgba(124,58,237,0.15); border:1px solid rgba(124,58,237,0.3); color:#8878F5; width:36px; height:36px;">
                         <i class="ph ph-caret-right"></i>
                     </button>
                 </div>
-                <div class="feature-item-wrapper">
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="400">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img1.png') }}" alt="img">
-                            </a>
+                <div class="feature-item__wrapper" style="overflow:hidden;">
+                    <a href="{{ route('shop') }}" class="game-pill">🔥 Diablo 4</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🌌 Path of Exile 2</a>
+                    <a href="{{ route('shop') }}" class="game-pill">⚽ FC 26</a>
+                    <a href="{{ route('shop') }}" class="game-pill">⚔️ World of Warcraft</a>
+                    <a href="{{ route('shop') }}" class="game-pill">💫 Final Fantasy XIV</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🗡️ Lost Ark</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🏰 Albion Online</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🌿 Runescape</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🎯 Escape from Tarkov</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🧙 Elder Scrolls Online</a>
+                    <a href="{{ route('shop') }}" class="game-pill">⚡ Throne and Liberty</a>
+                    <a href="{{ route('shop') }}" class="game-pill">🎭 Genshin Impact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ GAMES STRIP END ============================ -->
+
+    <!-- ============================ CATEGORIAS PRINCIPAIS ============================ -->
+    <div class="section-dark py-5">
+        <div class="container container-lg">
+            <div class="text-center mb-5">
+                <h2 class="section-title-gaming">O que você quer <span>comprar?</span></h2>
+                <div class="section-line mx-auto"></div>
+                <p class="section-subtitle-gaming">Escolha a categoria e encontre o melhor preço</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="{{ route('shop') }}" class="game-category-card">
+                        <span class="icon">💰</span>
+                        <h4>Game Currency</h4>
+                        <p>Gold, Coins, Gil, Orbs e todas as moedas dos seus jogos favoritos</p>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="{{ route('shop') }}" class="game-category-card" style="border-color:rgba(6,182,212,0.2);"
+                        onmouseover="this.style.borderColor='#8878F5'; this.style.boxShadow='0 8px 30px rgba(6,182,212,0.2)';"
+                        onmouseout="this.style.borderColor='rgba(6,182,212,0.2)'; this.style.boxShadow='';">
+                        <span class="icon icon-neon-cyan">⚔️</span>
+                        <h4>Game Items</h4>
+                        <p>Itens raros, equipamentos lendários e cosméticos exclusivos</p>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="{{ route('shop') }}" class="game-category-card" style="border-color:rgba(249,115,22,0.2);"
+                        onmouseover="this.style.borderColor='#f97316'; this.style.boxShadow='0 8px 30px rgba(249,115,22,0.2)';"
+                        onmouseout="this.style.borderColor='rgba(249,115,22,0.2)'; this.style.boxShadow='';">
+                        <span class="icon icon-neon-orange">🚀</span>
+                        <h4>Boosting</h4>
+                        <p>Level up, serviços de ranked, conquistas e power leveling</p>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="{{ route('shop') }}" class="game-category-card" style="border-color:rgba(245,158,11,0.2);"
+                        onmouseover="this.style.borderColor='#f59e0b'; this.style.boxShadow='0 8px 30px rgba(245,158,11,0.2)';"
+                        onmouseout="this.style.borderColor='rgba(245,158,11,0.2)'; this.style.boxShadow='';">
+                        <span class="icon" style="filter:drop-shadow(0 0 10px rgba(245,158,11,0.5));">🎮</span>
+                        <h4>Game Accounts</h4>
+                        <p>Contas prontas, high level, full equipadas e starter packs</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ CATEGORIAS END ============================ -->
+
+    <!-- ============================ GAMES EM DESTAQUE ============================ -->
+    <div class="section-dark-2 py-5">
+        <div class="container container-lg">
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                <div>
+                    <h2 class="section-title-gaming mb-1">Games em <span>Destaque</span></h2>
+                    <div class="section-line" style="margin-bottom:0;"></div>
+                </div>
+                <a href="{{ route('shop') }}" class="btn-neon-cyan text-decoration-none" style="font-size:0.8rem; padding:8px 20px;">
+                    Ver Todos <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="row g-4">
+                <!-- Diablo 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div class="badge-absolute badge-game badge-hot">🔥 HOT</div>
+                            <div style="height:180px; background:linear-gradient(135deg, #1a0a0a, #2d0000); display:flex; align-items:center; justify-content:center; font-size:5rem;">🔥</div>
                         </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Vegetables</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="600">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img2.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Fish & Meats</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="800">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img3.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Desserts</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img4.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Drinks & Juice</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="1200">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img5.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Animals Food</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="1400">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img6.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Fresh Fruits</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="1600">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img7.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Yummy Candy</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="1800">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img2.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Fish & Meats</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="2000">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img8.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Dairy & Eggs</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
-                        </div>
-                    </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="2200">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img9.png') }}" alt="img">
-                            </a>
-                        </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Snacks</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">Diablo IV Gold</h3>
+                            <p class="game-card__subtitle">Gold · Itens · Power Leveling</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 4,99</span>
+                                </div>
+                                <span class="badge-game badge-sale">-20%</span>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
                         </div>
                     </div>
-                    <div class="feature-item text-center wow bounceIn" data-aos="fade-up" data-aos-duration="2400">
-                        <div class="feature-item__thumb rounded-circle">
-                            <a href="{{route('shop')}}" class="w-100 h-100 flex-center">
-                                <img src="{{ asset('assets/images/thumbs/feature-img10.png') }}" alt="img">
-                            </a>
+                </div>
+
+                <!-- Path of Exile 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div class="badge-absolute badge-game badge-new">NOVO</div>
+                            <div style="height:180px; background:linear-gradient(135deg, #0a0a1a, #00002d); display:flex; align-items:center; justify-content:center; font-size:5rem;">🌌</div>
                         </div>
-                        <div class="feature-item__content mt-16">
-                            <h6 class="text-lg mb-8"><a href="{{route('shop')}}" class="text-inherit">Frozen Foods</a></h6>
-                            <span class="text-sm text-gray-400">125+ Products</span>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">Path of Exile 2</h3>
+                            <p class="game-card__subtitle">Currency · Items · Boosting</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 7,99</span>
+                                </div>
+                                <span class="badge-game badge-popular">POPULAR</span>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FC 26 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div class="badge-absolute badge-game badge-sale">-15%</div>
+                            <div style="height:180px; background:linear-gradient(135deg, #0a1a00, #002d00); display:flex; align-items:center; justify-content:center; font-size:5rem;">⚽</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">FC 26 Coins</h3>
+                            <p class="game-card__subtitle">Ultimate Team · Players · SBCs</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 9,90</span>
+                                </div>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WoW -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div style="height:180px; background:linear-gradient(135deg, #1a0a00, #2d1a00); display:flex; align-items:center; justify-content:center; font-size:5rem;">⚔️</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">World of Warcraft</h3>
+                            <p class="game-card__subtitle">Gold · Items · Boosting</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 14,99</span>
+                                </div>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Fantasy XIV -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div style="height:180px; background:linear-gradient(135deg, #00001a, #001a2d); display:flex; align-items:center; justify-content:center; font-size:5rem;">💫</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">Final Fantasy XIV</h3>
+                            <p class="game-card__subtitle">Gil · Items · Power Level</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 12,50</span>
+                                </div>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lost Ark -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="game-card">
+                        <div class="position-relative">
+                            <div class="badge-absolute badge-game badge-sale">-10%</div>
+                            <div style="height:180px; background:linear-gradient(135deg, #1a001a, #2d002d); display:flex; align-items:center; justify-content:center; font-size:5rem;">🗡️</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title">Lost Ark</h3>
+                            <p class="game-card__subtitle">Gold · Gems · Materials</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="game-card__price-from d-block">A partir de</span>
+                                    <span class="game-card__price">R$ 6,99</span>
+                                </div>
+                            </div>
+                            <a href="{{ route('shop') }}" class="game-card__btn">Ver Ofertas</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============================ Feature Section End =============================== -->
+    <!-- ============================ GAMES END ============================ -->
 
-    <!-- ======================== promotional banner Start ============================== -->
-    <section class="promotional-banner pt-80">
+    <!-- ============================ POR QUE ESCOLHER ============================ -->
+    <div class="section-gaming py-5">
         <div class="container container-lg">
-            <div class="row gy-4">
-                <div class="col-xl-3 col-sm-6 col-xs-6 wow bounceIn" data-aos="fade-up" data-aos-duration="400">
-                    <div
-                        class="promotional-banner-item position-relative rounded-24 overflow-hidden z-1 py-52 ps-40 pe-24 h-100">
-                        <img src="{{ asset('assets/images/thumbs/promotional-banner-img1.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1">
-                        <div class="promotional-banner-item__content">
-                            <h6 class="promotional-banner-item__title text-2xl max-w-184">Everyday Fresh Meat</h6>
-                            <div class="d-flex align-items-end gap-8">
-                                <span class="text-heading fst-italic text-sm">Starting at</span>
-                                <h6 class="text-danger-600 mb-0 text-xl"> $60.99</h6>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-xs-6 wow bounceIn" data-aos="fade-up" data-aos-duration="600">
-                    <div
-                        class="promotional-banner-item position-relative rounded-24 overflow-hidden z-1 py-52 ps-40 pe-24 h-100">
-                        <img src="{{ asset('assets/images/thumbs/promotional-banner-img2.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1">
-                        <div class="promotional-banner-item__content">
-                            <h6 class="promotional-banner-item__title text-2xl max-w-184">Daily Fresh Vegetables</h6>
-                            <div class="d-flex align-items-end gap-8">
-                                <span class="text-heading fst-italic text-sm">Starting at</span>
-                                <h6 class="text-danger-600 mb-0 text-xl"> $60.99</h6>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-xs-6 wow bounceIn" data-aos="fade-up" data-aos-duration="800">
-                    <div
-                        class="promotional-banner-item position-relative rounded-24 overflow-hidden z-1 py-52 ps-40 pe-24 h-100">
-                        <img src="{{ asset('assets/images/thumbs/promotional-banner-img3.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1">
-                        <div class="promotional-banner-item__content">
-                            <h6 class="promotional-banner-item__title text-2xl max-w-184">Everyday Fresh Milk</h6>
-                            <div class="d-flex align-items-end gap-8">
-                                <span class="text-heading fst-italic text-sm">Starting at</span>
-                                <h6 class="text-danger-600 mb-0 text-xl"> $60.99</h6>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-xs-6 wow bounceIn" data-aos="fade-up" data-aos-duration="1000">
-                    <div
-                        class="promotional-banner-item position-relative rounded-24 overflow-hidden z-1 py-52 ps-40 pe-24 h-100">
-                        <img src="{{ asset('assets/images/thumbs/promotional-banner-img4.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1">
-                        <div class="promotional-banner-item__content">
-                            <h6 class="promotional-banner-item__title text-2xl max-w-184">Everyday Fresh Fruits</h6>
-
-                            <a href="{{route('shop')}}"
-                                class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-5">
+                <h2 class="section-title-gaming">Por que escolher a <span>KG Coins?</span></h2>
+                <div class="section-line mx-auto"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- ======================== promotional banner End ============================== -->
-    <div class="product pt-60">
-        <div class="container container-lg">
-            <div class="section-heading">
-                <div class="flex-between flex-wrap gap-8">
-                    <h5 class="mb-0 wow fadeInLeft">Flash Sales Today</h5>
-                    <div class="flex-align gap-16 wow fadeInRight">
-                        <a href="{{route('shop')}}"
-                            class="text-sm fw-medium text-gray-700 hover-text-main-600 hover-text-decoration-underline">View
-                            All Deals</a>
-                        <div class="flex-align gap-8">
-                            <button type="button" id="product-one-prev"
-                                class="slick-prev slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                <i class="ph ph-caret-left"></i>
-                            </button>
-                            <button type="button" id="product-one-next"
-                                class="slick-next slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                <i class="ph ph-caret-right"></i>
-                            </button>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-card">
+                        <div class="icon-wrap">
+                            <span class="icon-neon">⚡</span>
                         </div>
+                        <h5>Entrega Instantânea</h5>
+                        <p>Coins e itens entregues em até 5 minutos após confirmação do pagamento</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="product-one-slider g-12">
-                <div class="" data-aos="fade-up" data-aos-duration="200">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img26.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-card">
+                        <div class="icon-wrap" style="background:rgba(6,182,212,0.15); border-color:rgba(6,182,212,0.3);">
+                            <span class="icon-neon-cyan">🔒</span>
                         </div>
+                        <h5>100% Seguro</h5>
+                        <p>Pagamento seguro via Pix, cartão ou boleto. Criptografia SSL em todas as transações</p>
                     </div>
                 </div>
-                <div class="" data-aos="fade-up" data-aos-duration="400">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img27.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-card">
+                        <div class="icon-wrap" style="background:rgba(249,115,22,0.15); border-color:rgba(249,115,22,0.3);">
+                            <span class="icon-neon-orange">💬</span>
                         </div>
+                        <h5>Suporte 24/7</h5>
+                        <p>Nossa equipe está disponível 24 horas por dia, 7 dias por semana via chat e Discord</p>
                     </div>
                 </div>
-                <div class="" data-aos="fade-up" data-aos-duration="600">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img28.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-card">
+                        <div class="icon-wrap" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.3);">
+                            <span style="font-size:1.75rem; filter:drop-shadow(0 0 8px rgba(245,158,11,0.7));">💰</span>
                         </div>
+                        <h5>Melhor Preço</h5>
+                        <p>Garantimos o melhor preço do mercado. Encontrou mais barato? Igualamos!</p>
                     </div>
                 </div>
-                <div class="" data-aos="fade-up" data-aos-duration="800">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img29.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" data-aos="fade-up" data-aos-duration="1000">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img30.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" data-aos="fade-up" data-aos-duration="1200">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" data-aos="fade-up" data-aos-duration="600">
-                    <div
-                        class="product-card px-20 py-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                        <a href="{{route('cart')}}"
-                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                            Add <i class="ph ph-shopping-cart"></i>
-                        </a>
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img3.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content mt-12">
-                            <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                        class="text-gray-500 fw-normal">/Qty</span> </span>
-                                <span class="text-gray-400 text-md fw-semibold text-decoration-line-through"> $28.99</span>
-                            </div>
-                            <div class="flex-align gap-6">
-                                <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                        class="ph-fill ph-star"></i></span>
-                                <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                            </div>
-                            <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli Florets
-                                    Vegetables</a>
-                            </h6>
-                            <div class="mt-12">
-                                <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                    aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                </div>
-                                <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- ========================= flash sales Start ================================ -->
-
-    <section class="flash-sales pt-80 overflow-hidden">
-        <div class="container container-lg">
-            <div class="row gy-4 arrow-style-two">
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
-                    <div
-                        class="flash-sales-item rounded-16 overflow-hidden z-1 position-relative flex-align flex-0 justify-content-between gap-8 ps-56-px">
-                        <img src="{{ asset('assets/images/bg/flash-sale-bg1.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1 flash-sales-item__bg">
-                        <div class="flash-sales-item__content ms-sm-auto">
-                            <h6 class="text-32 mb-8">X-Connect Smart Television</h6>
-                            <p class="text-neutral-500 mb-12">Time remaining until the end of the offer.</p>
-                            <div class="countdown" id="countdown1">
-                                <ul class="countdown-list flex-align flex-wrap">
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5">
-                                        <span class="days"></span> D</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5">
-                                        <span class="hours"></span> H</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5">
-                                        <span class="minutes"></span> M</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5">
-                                        <span class="seconds"></span> S</li>
-                                </ul>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div
-                        class="flash-sales-item rounded-16 overflow-hidden z-1 position-relative flex-align flex-0 justify-content-between gap-8 ps-56-px">
-                        <img src="{{ asset('assets/images/bg/flash-sale-bg2.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1 flash-sales-item__bg">
-                        <div class="flash-sales-item__content">
-                            <h6 class="text-32 mb-8">Vegetables Combo Box</h6>
-                            <p class="text-heading mb-12">Time remaining until the end of the offer.</p>
-                            <div class="countdown" id="countdown2">
-                                <ul class="countdown-list flex-align flex-wrap">
-                                    <li
-                                        class="countdown-list__item py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="days"></span> D</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="hours"></span> H</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="minutes"></span> M</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="seconds"></span> S</li>
-                                </ul>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="btn bg-success-600 hover-bg-success-700 d-inline-flex align-items-center rounded-pill gap-8 mt-24">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================= flash sales End ================================ -->
-
-    <!-- ========================= Recommended Start ================================ -->
-    <section class="recommended overflow-hidden pt-80">
-        <div class="container container-lg">
-            <div class="section-heading flex-between flex-wrap gap-16">
-                <h5 class="mb-0 wow fadeInLeft">Recommended for you</h5>
-                <ul class="nav common-tab nav-pills wow fadeInRight" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600 active"
-                            id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button"
-                            role="tab" aria-controls="pills-all" aria-selected="true">All</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-grocery-tab" data-bs-toggle="pill" data-bs-target="#pills-grocery"
-                            type="button" role="tab" aria-controls="pills-grocery"
-                            aria-selected="false">Grocery</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-fruits-tab" data-bs-toggle="pill" data-bs-target="#pills-fruits"
-                            type="button" role="tab" aria-controls="pills-fruits"
-                            aria-selected="false">Fruits</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-juices-tab" data-bs-toggle="pill" data-bs-target="#pills-juices"
-                            type="button" role="tab" aria-controls="pills-juices"
-                            aria-selected="false">Juices</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-vegetables-tab" data-bs-toggle="pill" data-bs-target="#pills-vegetables"
-                            type="button" role="tab" aria-controls="pills-vegetables"
-                            aria-selected="false">Vegetables</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-snacks-tab" data-bs-toggle="pill" data-bs-target="#pills-snacks"
-                            type="button" role="tab" aria-controls="pills-snacks"
-                            aria-selected="false">Snacks</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-medium text-sm border border-white hover-border-main-600"
-                            id="pills-organic-tab" data-bs-toggle="pill" data-bs-target="#pills-organic"
-                            type="button" role="tab" aria-controls="pills-organic"
-                            aria-selected="false">Organic Foods</button>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
-                    aria-labelledby="pills-all-tab" tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-grocery" role="tabpanel" aria-labelledby="pills-grocery-tab"
-                    tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-fruits" role="tabpanel" aria-labelledby="pills-fruits-tab"
-                    tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-juices" role="tabpanel" aria-labelledby="pills-juices-tab"
-                    tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-vegetables" role="tabpanel"
-                    aria-labelledby="pills-vegetables-tab" tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-snacks" role="tabpanel" aria-labelledby="pills-snacks-tab"
-                    tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-organic" role="tabpanel" aria-labelledby="pills-organic-tab"
-                    tabindex="0">
-                    <div class="row g-12">
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img7.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img8.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Marcel's Modern Pantry
-                                            Almond Unsweetened</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img9.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">O Organics Milk, Whole,
-                                            Vitamin D</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-info-600 px-8 py-4 text-sm text-white">Best Sale
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img10.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Whole Grains and Seeds
-                                            Organic Bread</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img11.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Lucerne Yogurt, Lowfat,
-                                            Strawberry</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img12.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Nature Valley Whole
-                                            Grain Oats and Honey Protein</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img14.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img15.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">C-500 Antioxidant
-                                            Protect Dietary Supplement</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img16.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Good & Gather Farmed
-                                            Atlantic Salmon</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                </span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img17.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Market Pantry 41/50 Raw
-                                            Tail-Off Large Raw Shrimp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card h-100 p-12 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item">
-                                <button type="button" class="wishlist-btn-two">
-                                    <i class="ph-bold ph-heart"></i>
-                                </button>
-                                <span class="product-card__badge bg-warning-600 px-8 py-4 text-sm text-white">New</span>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img18.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content p-sm-2 w-100">
-                                    <h6 class="title text-lg fw-semibold my-12">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Tropicana 100% Juice,
-                                            Orange, No Pulp</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-
-                                    <div class="product-card__content mt-12">
-                                        <div class="product-card__price mb-8">
-                                            <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                    class="text-gray-500 fw-normal">/Qty</span> </span>
-                                            <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                                $28.99</span>
-                                        </div>
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                        </div>
-                                        <a href="{{route('cart')}}"
-                                            class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                            Add To Cart <i class="ph ph-shopping-cart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================= Recommended End ================================ -->
-
-    <!-- =========================== Offer Section Start =============================== -->
-    <section class="offer pt-80">
-        <div class="container container-lg">
-            <div class="row gy-4">
-                <div class="col-sm-6" data-aos="zoom-in" data-aos-duration="600">
-                    <div class="offer-card position-relative rounded-16 overflow-hidden p-16 ps-56-px">
-                        <img src="{{ asset('assets/images/bg/offer-bg-img1.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100">
-                        <div class="py-xl-4 max-w-392 ms-auto">
-                            <div class="offer-card__logo mb-16 w-80 h-80 flex-center bg-white rounded-circle">
-                                <img src="{{ asset('assets/images/thumbs/offer-logo.png') }}" alt="img">
-                            </div>
-                            <h5 class="mb-8">$5 off your first order</h5>
-                            <div class="flex-align gap-8">
-                                <span class="text-sm fw-medium text-heading">Delivery by 6:15am</span>
-                                <span class="text-xs text-heading">Expire Aug 5</span>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="mt-16 btn bg-success-600 hover-text-white hover-bg-success-700 text-white fw-medium d-inline-flex align-items-center rounded-pill gap-8"
-                                tabindex="0">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6" data-aos="zoom-in" data-aos-duration="800">
-                    <div class="offer-card position-relative rounded-16 overflow-hidden p-16 ps-56-px">
-                        <img src="{{ asset('assets/images/bg/offer-bg-img2.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100">
-                        <div class="py-xl-4 max-w-392">
-                            <div class="offer-card__logo mb-16 w-80 h-80 flex-center bg-white rounded-circle">
-                                <img src="{{ asset('assets/images/thumbs/offer-logo.png') }}" alt="img">
-                            </div>
-                            <h5 class="mb-8">$5 off your first order</h5>
-                            <div class="flex-align gap-8">
-                                <span class="text-sm fw-medium text-heading">Delivery by 6:15am</span>
-                                <span class="text-sm text-success-600">Expire Aug 5</span>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="mt-16 btn bg-white hover-text-white hover-bg-main-800 text-heading fw-medium d-inline-flex align-items-center rounded-pill gap-8"
-                                tabindex="0">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- =========================== Offer Section End =============================== -->
-
-    <!-- ========================= hot-deals Start ================================ -->
-    <section class="hot-deals pt-80 overflow-hidden">
-        <div class="container container-lg">
-            <div class="section-heading">
-                <div class="flex-between flex-wrap gap-8">
-                    <h5 class="mb-0 wow fadeInLeft">Hot Deals Todays</h5>
-                    <div class="flex-align gap-16 wow fadeInRight">
-                        <a href="{{route('shop')}}"
-                            class="text-sm fw-medium text-gray-700 hover-text-main-600 hover-text-decoration-underline">View
-                            All Deals</a>
-                        <div class="flex-align gap-8">
-                            <button type="button" id="deals-prev"
-                                class="slick-prev slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                <i class="ph ph-caret-left"></i>
-                            </button>
-                            <button type="button" id="deals-next"
-                                class="slick-next slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                <i class="ph ph-caret-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-12">
-                <div class="col-md-4" data-aos="zoom-in">
-                    <div
-                        class="hot-deals position-relative rounded-16 bg-main-600 overflow-hidden ps-40 pe-24 pt-80 pb-120 z-1">
-                        <img src="{{ asset('assets/images/shape/offer-shape.png') }}" alt="img"
-                            class="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100 opacity-6">
-
-                        <img src="{{ asset('assets/images/thumbs/basket-img.png') }}" alt="Basket Thumb"
-                            class="position-absolute inset-inline-end-0 inset-block-end-0">
-
-                        <span
-                            class="text-primary-600 bg-yellow text-heading py-4 px-12 rounded-4 text-sm fw-medium">Medical
-                            equipment</span>
-                        <div class="">
-                            <h5 class="text-white mb-8 mt-12">Deals of the day</h5>
-                            <p class="fw-semibold text-success-600">Save up to 50% off on your first order</p>
-                            <div class="countdown mt-24 mb-24" id="countdown4">
-                                <ul class="countdown-list d-flex align-items-center flex-wrap">
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium colon-white">
-                                        <span class="days"></span> D</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium colon-white">
-                                        <span class="hours"></span> H</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium colon-white">
-                                        <span class="minutes"></span> M</li>
-                                    <li
-                                        class="countdown-list__item py-8 px-12 text-heading flex-align gap-4 text-sm fw-medium colon-white">
-                                        <span class="seconds"></span> S</li>
-                                </ul>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="mt-16 btn bg-white hover-text-white hover-bg-main-800 text-main-600 fw-medium d-inline-flex align-items-center rounded-pill gap-8"
-                                tabindex="0">
-                                Explore Shop
-                                <span class="icon text-xl d-flex"><i class="ph-bold ph-shopping-cart"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="hot-deals-slider arrow-style-two">
-                        <div class="" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img26.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img27.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img28.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img29.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="1000">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img30.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="1200">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img13.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" data-aos="fade-up" data-aos-duration="600">
-                            <div
-                                class="product-card px-20 pt-16 pb-40 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
-                                <a href="{{route('cart')}}"
-                                    class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 position-absolute inset-block-start-0 inset-inline-end-0 me-16 mt-16">
-                                    Add <i class="ph ph-shopping-cart"></i>
-                                </a>
-                                <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                                    <img src="{{ asset('assets/images/thumbs/product-img3.png') }}" alt="img">
-                                </a>
-                                <div class="product-card__content mt-12">
-                                    <div class="product-card__price mb-8 d-flex align-items-center gap-8">
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-20">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================= hot-deals End ================================ -->
-
-    <!-- ============================ Super Discount Start ================================== -->
-    <div class="pt-80">
-        <div class="container container-lg">
-            <div
-                class="border border-main-500 bg-main-50 border-dashed rounded-8 py-20 d-flex align-items-center justify-content-evenly">
-                <p class="h6 text-main-600 fw-normal">Super discount for your <a href="javascript:void(0)"
-                        class="fw-bold text-decoration-underline text-main-600 hover-text-decoration-none hover-text-primary-600 ">first
-                        purchase</a> </p>
-                <div class="position-relative">
-                    <button
-                        class="copy-coupon-btn px-32 py-10 text-white text-uppercase bg-main-600 rounded-pill border-0 hover-bg-main-800 ">
-                        FREE25BAC
-                        <i class="ph ph-file-text text-lg line-height-1"></i>
-                    </button>
-                    <span
-                        class="copy-text bg-main-600 text-white fw-normal position-absolute px-16 py-6 rounded-pill bottom-100 start-50 translate-middle-x min-w-max mb-8 text-xs"></span>
-                </div>
-                <p class="text-md text-main-600 fw-normal">Use discount code to get <span
-                        class="fw-bold text-main-600">20% </span> discount for any item</p>
             </div>
         </div>
     </div>
-    <!-- ============================ Super Discount End ================================== -->
+    <!-- ============================ POR QUE ESCOLHER END ============================ -->
 
-    <!-- ========================== Short Product Section Start ============================== -->
-    <div class="short-product pt-110">
+    <!-- ============================ ESTATÍSTICAS ============================ -->
+    <div class="section-dark-3 py-5">
         <div class="container container-lg">
-            <div class="row gy-4">
-                <div class="col-xxl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="600">
-                    <div
-                        class="p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 ">
-                        <div class="p-16 bg-main-50 rounded-16 mb-32">
-                            <h6 class="underlined-line position-relative mb-0 pb-16 d-inline-block">Featured Products</h6>
-                        </div>
-                        <div class="short-product-list arrow-style-two max-h-unset">
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img1.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img2.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img3.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img1.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img2.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img3.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="stats-gaming">
+                <div class="row g-4 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-item__value">50K+</div>
+                            <div class="stat-item__label">Clientes Satisfeitos</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xxl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="700">
-                    <div
-                        class="p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 ">
-                        <div class="p-16 bg-main-50 rounded-16 mb-32">
-                            <h6 class="underlined-line position-relative mb-0 pb-16 d-inline-block">Top Selling Products
-                            </h6>
-                        </div>
-                        <div class="short-product-list arrow-style-two max-h-unset">
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img5.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img6.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img7.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img8.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img5.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img6.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img7.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img8.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-item__value">200+</div>
+                            <div class="stat-item__label">Games Suportados</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xxl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="800">
-                    <div
-                        class="p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 ">
-                        <div class="p-16 bg-main-50 rounded-16 mb-32">
-                            <h6 class="underlined-line position-relative mb-0 pb-16 d-inline-block">On-sale Products</h6>
-                        </div>
-                        <div class="short-product-list arrow-style-two max-h-unset">
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img9.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img7.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column gap-44">
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img9.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img7.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-align gap-16">
-                                    <div class="w-90 h-90 rounded-12 border border-gray-100 flex-shrink-0">
-                                        <a href="{{route('shop.details')}}" class="link"><img
-                                                src="{{ asset('assets/images/thumbs/short-product-img4.png') }}" alt="img"></a>
-                                    </div>
-                                    <div class="product-card__content mt-12">
-                                        <div class="flex-align gap-6">
-                                            <span class="text-xs fw-bold text-gray-500">4.8</span>
-                                            <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                    class="ph-fill ph-star"></i></span>
-                                            <span class="text-xs fw-bold text-gray-500">(17k)</span>
-                                        </div>
-                                        <h6 class="title text-lg fw-semibold mt-8 mb-8">
-                                            <a href="{{route('shop.details')}}" class="link text-line-1">Taylor Farms
-                                                Broccoli Florets Vegetables</a>
-                                        </h6>
-                                        <div class="product-card__price flex-align gap-8">
-                                            <span class="text-heading text-md fw-semibold d-block">$1500.00</span>
-                                            <span class="text-gray-400 text-md fw-semibold d-block">$1500.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-item__value">1M+</div>
+                            <div class="stat-item__label">Pedidos Entregues</div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-xxl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="900">
-                    <div
-                        class="product-card h-100 p-24 pt-32 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 group-item pt-32">
-                        <button type="button" class="wishlist-btn-two">
-                            <i class="ph-bold ph-heart"></i>
-                        </button>
-
-                        <div class="">
-                            <h6 class="position-relative mb-0 pb-12 d-inline-block">Deals of the week</h6>
-                            <div class="countdown mb-10" id="countdown26">
-                                <ul class="countdown-list flex-align flex-wrap">
-                                    <li
-                                        class="countdown-list__item colon-red py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="days"></span> D
-                                    </li>
-                                    <li
-                                        class="countdown-list__item colon-red py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="hours"></span> H
-                                    </li>
-                                    <li
-                                        class="countdown-list__item colon-red py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="minutes"></span> M
-                                    </li>
-                                    <li
-                                        class="countdown-list__item colon-red py-8 px-12 flex-align gap-4 text-sm fw-medium box-shadow-4xl rounded-5 bg-main-600 text-white">
-                                        <span class="seconds"></span> S
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="text-neutral-300 fw-medium text-sm">Don't miss this opportunity at a special</p>
-                        </div>
-
-                        <a href="{{route('shop.details')}}" class="product-card__thumb flex-center overflow-hidden">
-                            <img src="{{ asset('assets/images/thumbs/product-img32.png') }}" alt="img">
-                        </a>
-                        <div class="product-card__content w-100">
-                            <div class="flex-align gap-4">
-                                <div class="flex-align gap-2 me-4">
-                                    <span class="text-12 fw-medium text-warning-600 d-flex"><i
-                                            class="ph-fill ph-star"></i></span>
-                                    <span class="text-12 fw-medium text-warning-600 d-flex"><i
-                                            class="ph-fill ph-star"></i></span>
-                                    <span class="text-12 fw-medium text-warning-600 d-flex"><i
-                                            class="ph-fill ph-star"></i></span>
-                                    <span class="text-12 fw-medium text-warning-600 d-flex"><i
-                                            class="ph-fill ph-star"></i></span>
-                                    <span class="text-12 fw-medium text-warning-600 d-flex"><i
-                                            class="ph-fill ph-star"></i></span>
-                                </div>
-                                <span class="text-xs fw-medium text-heading">(3)</span>
-                            </div>
-                            <div class="d-flex align-items-center gap-12 mt-6">
-                                <h6 class="text-danger-600 mb-0 text-lg"> $60.99</h6>
-                                <h6 class="text-neutral-300 fw-medium mb-0 text-lg">$79.99</h6>
-                            </div>
-
-                            <h6 class="title text-md fw-semibold mt-10 mb-0">
-                                <a href="{{route('shop.details')}}" class="link text-line-2 fw-bold">Perfectly Packed Meat
-                                    Combos for Delicious and Flavorful Meals Every Day</a>
-                            </h6>
-                            <p class="text-gray-500 text-sm mt-12 pb-12 border-bottom border-neutral-100 mb-8">This
-                                product is about to run out</p>
-
-                            <div class="progress w-100 bg-gray-100 rounded-pill h-8" role="progressbar"
-                                aria-label="Basic example" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar bg-success-600 rounded-pill" style="width: 35%"></div>
-                            </div>
-                            <div class="d-flex align-items-center gap-6 mt-6">
-                                <span class="text-sm text-gray-500">available only:</span>
-                                <h6 class="text-danger-600 mb-0 text-md fw-semibold"> $60.99</h6>
-                            </div>
-                            <a href="{{route('cart')}}"
-                                class="product-card__cart btn bg-success-600 text-white hover-bg-success-700 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-16 w-100 justify-content-center">
-                                Add To Cart <i class="ph ph-shopping-cart"></i>
-                            </a>
+                    <div class="col-6 col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-item__value">4.9★</div>
+                            <div class="stat-item__label">Avaliação Média</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ========================== Short Product Section End ============================ -->
+    <!-- ============================ ESTATÍSTICAS END ============================ -->
 
-    <!-- ============================ Brand Section Start ============================= -->
-    <div class="brand py-80 overflow-hidden">
+    <!-- ============================ OFERTA RELÂMPAGO ============================ -->
+    <div class="flash-sale-section py-5">
         <div class="container container-lg">
-            <div class="brand-inner p-24 rounded-16">
-                <div class="section-heading">
-                    <div class="flex-between flex-wrap gap-8">
-                        <h5 class="mb-0 wow fadeInLeft">Shop by Brands</h5>
-                        <div class="flex-align gap-16 wow fadeInRight">
-                            <a href="{{route('shop')}}"
-                                class="text-sm fw-medium text-gray-700 hover-text-main-600 hover-text-decoration-underline">View
-                                All Deals</a>
-                            <div class="flex-align gap-8">
-                                <button type="button" id="brand-prev"
-                                    class="slick-prev slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                    <i class="ph ph-caret-left"></i>
-                                </button>
-                                <button type="button" id="brand-next"
-                                    class="slick-next slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 hover-text-white transition-1">
-                                    <i class="ph ph-caret-right"></i>
-                                </button>
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                <div>
+                    <h2 class="section-title-gaming mb-1">⚡ Ofertas <span>Relâmpago</span></h2>
+                    <div class="section-line" style="margin-bottom:0;"></div>
+                </div>
+                <div class="flash-sale-timer">
+                    <span style="color:#94a3b8; font-size:0.8rem; font-family:'Exo',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Termina em:</span>
+                    <div class="d-flex align-items-center gap-8" id="countdown-flash">
+                        <div class="timer-unit">
+                            <span class="timer-unit__value hours">08</span>
+                            <span class="timer-unit__label">Horas</span>
+                        </div>
+                        <span class="timer-separator">:</span>
+                        <div class="timer-unit">
+                            <span class="timer-unit__value minutes">45</span>
+                            <span class="timer-unit__label">Min</span>
+                        </div>
+                        <span class="timer-separator">:</span>
+                        <div class="timer-unit">
+                            <span class="timer-unit__value seconds">30</span>
+                            <span class="timer-unit__label">Seg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="game-card neon-border-animated">
+                        <div style="height:140px; background:linear-gradient(135deg, #1a0a0a, #2d0000); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative;">
+                            🔥
+                            <div class="badge-absolute badge-game badge-sale">-30%</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title" style="font-size:0.9rem;">D4 Gold 100M</h3>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span style="color:#475569; text-decoration:line-through; font-size:0.8rem;">R$ 29,90</span>
+                                    <span class="game-card__price d-block" style="font-size:1.1rem;">R$ 20,93</span>
+                                </div>
+                                <a href="{{ route('shop') }}" class="game-card__btn" style="width:auto; padding:6px 12px; font-size:0.75rem;">Comprar</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="brand-slider arrow-style-two">
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="200">
-                        <img src="{{ asset('assets/images/thumbs/brand-img1.png') }}" alt="img">
+                <div class="col-md-6 col-lg-3">
+                    <div class="game-card neon-border-animated">
+                        <div style="height:140px; background:linear-gradient(135deg, #0a0a1a, #00002d); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative;">
+                            🌌
+                            <div class="badge-absolute badge-game badge-sale">-25%</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title" style="font-size:0.9rem;">PoE2 Exalted Orb x10</h3>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span style="color:#475569; text-decoration:line-through; font-size:0.8rem;">R$ 39,90</span>
+                                    <span class="game-card__price d-block" style="font-size:1.1rem;">R$ 29,93</span>
+                                </div>
+                                <a href="{{ route('shop') }}" class="game-card__btn" style="width:auto; padding:6px 12px; font-size:0.75rem;">Comprar</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="400">
-                        <img src="{{ asset('assets/images/thumbs/brand-img2.png') }}" alt="img">
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="game-card neon-border-animated">
+                        <div style="height:140px; background:linear-gradient(135deg, #0a1a00, #002d00); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative;">
+                            ⚽
+                            <div class="badge-absolute badge-game badge-sale">-20%</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title" style="font-size:0.9rem;">FC 26 1000K Coins</h3>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span style="color:#475569; text-decoration:line-through; font-size:0.8rem;">R$ 49,90</span>
+                                    <span class="game-card__price d-block" style="font-size:1.1rem;">R$ 39,92</span>
+                                </div>
+                                <a href="{{ route('shop') }}" class="game-card__btn" style="width:auto; padding:6px 12px; font-size:0.75rem;">Comprar</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="600">
-                        <img src="{{ asset('assets/images/thumbs/brand-img3.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="800">
-                        <img src="{{ asset('assets/images/thumbs/brand-img4.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="{{ asset('assets/images/thumbs/brand-img5.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="1200">
-                        <img src="{{ asset('assets/images/thumbs/brand-img6.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="1400">
-                        <img src="{{ asset('assets/images/thumbs/brand-img7.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="1600">
-                        <img src="{{ asset('assets/images/thumbs/brand-img8.png') }}" alt="img">
-                    </div>
-                    <div class="brand-item" data-aos="zoom-in" data-aos-duration="1800">
-                        <img src="{{ asset('assets/images/thumbs/brand-img3.png') }}" alt="img">
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="game-card neon-border-animated">
+                        <div style="height:140px; background:linear-gradient(135deg, #1a0a00, #2d1a00); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative;">
+                            ⚔️
+                            <div class="badge-absolute badge-game badge-sale">-15%</div>
+                        </div>
+                        <div class="game-card__body">
+                            <h3 class="game-card__title" style="font-size:0.9rem;">WoW Gold 50K</h3>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span style="color:#475569; text-decoration:line-through; font-size:0.8rem;">R$ 34,90</span>
+                                    <span class="game-card__price d-block" style="font-size:1.1rem;">R$ 29,67</span>
+                                </div>
+                                <a href="{{ route('shop') }}" class="game-card__btn" style="width:auto; padding:6px 12px; font-size:0.75rem;">Comprar</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============================ Brand Section End ============================= -->
+    <!-- ============================ OFERTA END ============================ -->
 
-    <!-- ========================= best sells Start ============================ -->
-    <section class="best sells pb-80">
+    <!-- ============================ MARQUEE GAMES SUPORTADOS ============================ -->
+    <div class="marquee-gaming py-3">
+        <div class="d-flex align-items-center" style="white-space:nowrap; animation:marqueeScroll 30s linear infinite;">
+            <span class="marquee-item">Diablo IV</span>
+            <span class="marquee-item">Path of Exile 2</span>
+            <span class="marquee-item">FC 26</span>
+            <span class="marquee-item">World of Warcraft</span>
+            <span class="marquee-item">Final Fantasy XIV</span>
+            <span class="marquee-item">Lost Ark</span>
+            <span class="marquee-item">Albion Online</span>
+            <span class="marquee-item">Runescape</span>
+            <span class="marquee-item">Throne & Liberty</span>
+            <span class="marquee-item">Genshin Impact</span>
+            <span class="marquee-item">Escape from Tarkov</span>
+            <span class="marquee-item">Elder Scrolls Online</span>
+            <span class="marquee-item">Guild Wars 2</span>
+            <span class="marquee-item">Aion</span>
+            <span class="marquee-item">Diablo IV</span>
+            <span class="marquee-item">Path of Exile 2</span>
+            <span class="marquee-item">FC 26</span>
+            <span class="marquee-item">World of Warcraft</span>
+            <span class="marquee-item">Final Fantasy XIV</span>
+            <span class="marquee-item">Lost Ark</span>
+        </div>
+    </div>
+    <!-- ============================ MARQUEE END ============================ -->
+
+    <!-- ============================ DEPOIMENTOS ============================ -->
+    <div class="section-dark py-5">
         <div class="container container-lg">
-            <div class="section-heading">
-                <div class="flex-between flex-wrap gap-8">
-                    <h5 class="mb-0 wow fadeInLeft">Daily Best Sells</h5>
-                </div>
+            <div class="text-center mb-5">
+                <h2 class="section-title-gaming">O que nossos <span>clientes dizem</span></h2>
+                <div class="section-line mx-auto"></div>
             </div>
-
-            <div class="row g-12">
-                <div class="col-xxl-8">
-                    <div class="row gy-4">
-                        <div class="col-md-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card style-two h-100 p-8 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 flex-align gap-16">
-                                <div class="">
-                                    <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                    </span>
-                                    <a href="{{route('shop.details')}}"
-                                        class="product-card__thumb flex-center overflow-hidden">
-                                        <img src="{{ asset('assets/images/thumbs/best-sell1.png') }}" alt="img">
-                                    </a>
-                                    <div class="countdown" id="countdown6">
-                                        <ul class="countdown-list style-three flex-align flex-wrap">
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="days"></span>Days</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="hours"></span>Hours</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="minutes"></span>Min</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="seconds"></span>Sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-card__content">
-                                    <div class="product-card__price mb-16">
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-8">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                    <a href="{{route('cart')}}"
-                                        class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                        Add To Cart <i class="ph ph-shopping-cart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card style-two h-100 p-8 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 flex-align gap-16">
-                                <div class="">
-                                    <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                    </span>
-                                    <a href="{{route('shop.details')}}"
-                                        class="product-card__thumb flex-center overflow-hidden">
-                                        <img src="{{ asset('assets/images/thumbs/best-sell2.png') }}" alt="img">
-                                    </a>
-                                    <div class="countdown" id="countdown7">
-                                        <ul class="countdown-list style-three flex-align flex-wrap">
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="days"></span>Days</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="hours"></span>Hours</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="minutes"></span>Min</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="seconds"></span>Sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-card__content">
-                                    <div class="product-card__price mb-16">
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-8">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                    <a href="{{route('cart')}}"
-                                        class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                        Add To Cart <i class="ph ph-shopping-cart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-duration="200">
-                            <div
-                                class="product-card style-two h-100 p-8 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 flex-align gap-16">
-                                <div class="">
-                                    <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                    </span>
-                                    <a href="{{route('shop.details')}}"
-                                        class="product-card__thumb flex-center overflow-hidden">
-                                        <img src="{{ asset('assets/images/thumbs/best-sell3.png') }}" alt="img">
-                                    </a>
-                                    <div class="countdown" id="countdown8">
-                                        <ul class="countdown-list style-three flex-align flex-wrap">
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="days"></span>Days</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="hours"></span>Hours</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="minutes"></span>Min</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="seconds"></span>Sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-card__content">
-                                    <div class="product-card__price mb-16">
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-8">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                    <a href="{{route('cart')}}"
-                                        class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                        Add To Cart <i class="ph ph-shopping-cart"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-duration="400">
-                            <div
-                                class="product-card style-two h-100 p-8 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2 flex-align gap-16">
-                                <div class="">
-                                    <span class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white">Sale 50%
-                                    </span>
-                                    <a href="{{route('shop.details')}}"
-                                        class="product-card__thumb flex-center overflow-hidden">
-                                        <img src="{{ asset('assets/images/thumbs/best-sell4.png') }}" alt="img">
-                                    </a>
-                                    <div class="countdown" id="countdown9">
-                                        <ul class="countdown-list style-three flex-align flex-wrap">
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="days"></span>Days</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="hours"></span>Hours</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="minutes"></span>Min</li>
-                                            <li
-                                                class="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
-                                                <span class="seconds"></span>Sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-card__content">
-                                    <div class="product-card__price mb-16">
-                                        <span class="text-gray-400 text-md fw-semibold text-decoration-line-through">
-                                            $28.99</span>
-                                        <span class="text-heading text-md fw-semibold ">$14.99 <span
-                                                class="text-gray-500 fw-normal">/Qty</span> </span>
-                                    </div>
-                                    <div class="flex-align gap-6">
-                                        <span class="text-xs fw-bold text-gray-600">4.8</span>
-                                        <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                class="ph-fill ph-star"></i></span>
-                                        <span class="text-xs fw-bold text-gray-600">(17k)</span>
-                                    </div>
-                                    <h6 class="title text-lg fw-semibold mt-12 mb-8">
-                                        <a href="{{route('shop.details')}}" class="link text-line-2">Taylor Farms Broccoli
-                                            Florets Vegetables</a>
-                                    </h6>
-                                    <div class="flex-align gap-4">
-                                        <span class="text-main-600 text-md d-flex"><i
-                                                class="ph-fill ph-storefront"></i></span>
-                                        <span class="text-gray-500 text-xs">By Lucky Supermarket</span>
-                                    </div>
-                                    <div class="mt-12">
-                                        <div class="progress w-100  bg-color-three rounded-pill h-4" role="progressbar"
-                                            aria-label="Basic example" aria-valuenow="35" aria-valuemin="0"
-                                            aria-valuemax="100">
-                                            <div class="progress-bar bg-main-600 rounded-pill" style="width: 35%"></div>
-                                        </div>
-                                        <span class="text-gray-900 text-xs fw-medium mt-8">Sold: 18/35</span>
-                                    </div>
-                                    <a href="{{route('cart')}}"
-                                        class="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center">
-                                        Add To Cart <i class="ph ph-shopping-cart"></i>
-                                    </a>
-                                </div>
-                            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Recebi o gold do Diablo 4 em menos de 3 minutos! Serviço impecável e preço justo. Com certeza voltarei a comprar."</p>
+                        <div>
+                            <div class="author">Carlos M.</div>
+                            <div class="author-game">🔥 Diablo IV · Gold</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xxl-4" data-aos="zoom-in" data-aos-duration="600">
-                    <div class="position-relative rounded-16 bg-light-purple overflow-hidden p-28 z-1 h-100">
-                        <div class="">
-                            <img src="{{ asset('assets/images/bg/special-snacks.png') }}" alt="img"
-                                class="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100 cover-img">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Comprei Exalted Orbs para o PoE 2 e foi tudo perfeito. O suporte me ajudou rapidamente quando tive uma dúvida."</p>
+                        <div>
+                            <div class="author">Ana K.</div>
+                            <div class="author-game">🌌 Path of Exile 2 · Currency</div>
                         </div>
-                        <div class="py-xl-4">
-                            <div class="offer-card__logo mb-16 w-80 h-80 flex-center bg-white rounded-circle">
-                                <img src="{{ asset('assets/images/thumbs/offer-logo.png') }}" alt="img">
-                            </div>
-                            <h5 class="mb-8">$5 off your first order</h5>
-                            <div class="flex-align gap-8">
-                                <span class="text-sm fw-medium text-heading">Delivery by 6:15am</span>
-                                <span class="text-xs text-heading">Expire Aug 5</span>
-                            </div>
-                            <a href="{{route('shop')}}"
-                                class="mt-16 btn bg-success-600 hover-text-white hover-bg-success-700 text-white fw-medium d-inline-flex align-items-center rounded-pill gap-8"
-                                tabindex="0">
-                                Shop Now
-                                <span class="icon text-xl d-flex"><i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Melhor site para comprar FC Coins! Preço baixo, entrega rápida e sem risco de ban. Recomendo para todos os jogadores!"</p>
+                        <div>
+                            <div class="author">Pedro L.</div>
+                            <div class="author-game">⚽ FC 26 · Ultimate Team</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ DEPOIMENTOS END ============================ -->
+
+    <!-- ============================ PROGRAMA DE FIDELIDADE BANNER ============================ -->
+    <div class="py-5" style="background:linear-gradient(135deg, #17133a, #13141e, #082a1a);">
+        <div class="container container-lg">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <div class="badge-game badge-popular mb-3" style="display:inline-block;">🏆 PROGRAMA DE FIDELIDADE</div>
+                    <h2 class="section-title-gaming mb-3">Ganhe pontos em <span>cada compra!</span></h2>
+                    <p style="color:#94a3b8; font-size:1rem; margin-bottom:1.5rem;">
+                        Acumule pontos, suba de nível e desbloqueie benefícios exclusivos. Bronze → Prata → Ouro → Platina
+                    </p>
+                    <div class="d-flex align-items-center gap-16 flex-wrap">
+                        @auth
+                            <a href="{{ route('loyalty.dashboard') }}" class="btn-neon text-decoration-none" style="display:inline-flex; align-items:center; gap:8px;">
+                                <i class="ph ph-trophy"></i> Ver Meus Pontos
                             </a>
+                        @endauth
+                        @guest
+                            <a href="{{ route('register') }}" class="btn-neon text-decoration-none" style="display:inline-flex; align-items:center; gap:8px;">
+                                <i class="ph ph-user-plus"></i> Cadastre-se Grátis
+                            </a>
+                            <a href="{{ route('login') }}" class="btn-neon-cyan text-decoration-none" style="display:inline-flex; align-items:center; gap:8px;">
+                                <i class="ph ph-sign-in"></i> Login
+                            </a>
+                        @endguest
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div style="background:rgba(205,127,50,0.1); border:1px solid rgba(205,127,50,0.3); border-radius:10px; padding:1rem; text-align:center;">
+                                <div style="font-size:2rem; margin-bottom:4px;">🥉</div>
+                                <div style="color:#cd7f32; font-family:'Exo',sans-serif; font-weight:700; font-size:0.85rem;">Bronze</div>
+                                <div style="color:#64748b; font-size:0.75rem;">0 - 500 pts</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:rgba(192,192,192,0.1); border:1px solid rgba(192,192,192,0.3); border-radius:10px; padding:1rem; text-align:center;">
+                                <div style="font-size:2rem; margin-bottom:4px;">🥈</div>
+                                <div style="color:#c0c0c0; font-family:'Exo',sans-serif; font-weight:700; font-size:0.85rem;">Prata</div>
+                                <div style="color:#64748b; font-size:0.75rem;">500 - 2000 pts</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.3); border-radius:10px; padding:1rem; text-align:center;">
+                                <div style="font-size:2rem; margin-bottom:4px;">🥇</div>
+                                <div style="color:#ffd700; font-family:'Exo',sans-serif; font-weight:700; font-size:0.85rem;">Ouro</div>
+                                <div style="color:#64748b; font-size:0.75rem;">2000 - 5000 pts</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:rgba(229,228,226,0.1); border:1px solid rgba(229,228,226,0.3); border-radius:10px; padding:1rem; text-align:center;">
+                                <div style="font-size:2rem; margin-bottom:4px;">💎</div>
+                                <div style="color:#e5e4e2; font-family:'Exo',sans-serif; font-weight:700; font-size:0.85rem;">Platina</div>
+                                <div style="color:#64748b; font-size:0.75rem;">5000+ pts</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ========================= best sells End ================================ -->
+    </div>
+    <!-- ============================ FIDELIDADE END ============================ -->
 
-    <!-- ================================ Newsletter new section Start ================================== -->
-    <section class="newsletter-new">
-        <div class="container container-lg">
-            <div
-                class="py-20 px-80-px bg-neutral-100 rounded-12 d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap gap-32">
-                <div class="max-w-700">
-                    <h3 class="mb-30">Stay home & get your daily needs from our shop</h3>
-                    <form action="#" class="d-flex gap-8 flex-wrap flex-sm-nowrap">
-                        @csrf
-                        <input type="text"
-                            class="form-control bg-white px-20 shadow-none py-16 rounded placeholder-text-14 flex-grow-1"
-                            placeholder="Enter your mail">
-                        <button type="submit"
-                            class="btn py-20 px-32 bg-success-600 flex-shrink-0 hover-bg-success-700 flex-grow-1">Subscribe
-                            now</button>
-                    </form>
-                    <p class="text-heading text-sm mt-20 fw-medium">I agree that my submitted data is being collected and
-                        stored.</p>
-                </div>
-                <div class="d-lg-block d-none">
-                    <img src="{{ asset('assets/images/thumbs/newsletter-img.png') }}" alt="Thumbnail">
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- ================================ Newsletter new section End ================================== -->
-
-    <!-- ============================ footer area ================================== -->
+    <!-- ============================ FOOTER ============================ -->
     @include('frontend.includes.footers.footerOne')
-    <!-- ============================ footer area end ================================== -->
+    <!-- ============================ FOOTER END ============================ -->
+
+@endsection
+
+@section('script')
+<style>
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+</style>
 @endsection

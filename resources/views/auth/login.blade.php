@@ -74,148 +74,120 @@
 
 
 @extends('frontend.layouts.app')
-@section('title', 'Login')
+@section('title', 'Login - KG Coins')
 @section('content')
     <!-- ============================ header area ============================ -->
-    @include('frontend.includes.headers.headerTwo')
+    @include('frontend.includes.headers.headerOne')
     <!-- ============================ header area end ============================ -->
 
-    <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="breadcrumb mb-0 py-26 bg-main-two-50">
-        <div class="container container-lg">
-            <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
-                <h6 class="mb-0">Login</h6>
-                <ul class="flex-align gap-8 flex-wrap">
-                    <li class="text-sm">
-                        <a href="{{route('home')}}" class="text-gray-900 flex-align gap-8 hover-text-main-600">
-                            <i class="ph ph-house"></i>
-                            Home
-                        </a>
-                    </li>
-                    <li class="flex-align">
-                        <i class="ph ph-caret-right"></i>
-                    </li>
-                    <li class="text-sm text-main-600">Login</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- ========================= Breadcrumb End =============================== -->
+    <!-- =============================== Account / Login Section =========================== -->
+    <section class="auth-gaming">
+        <div class="container">
+            <div class="row justify-content-center py-5 my-3">
+                <div class="col-xl-5 col-lg-6 col-md-8">
+                    <div class="auth-card">
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
+                            <a href="{{ route('home') }}" class="logo-gaming text-decoration-none" style="font-size:1.75rem;">
+                                <i class="ph ph-coins" style="margin-right:4px;"></i>KG Coins
+                            </a>
+                            <p style="color:#64748b; font-size:0.875rem; margin-top:8px;">Entre na sua conta</p>
+                        </div>
 
-    <!-- =============================== Account Section Start =========================== -->
-    <section class="account py-80">
-        <div class="container container-lg">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="row justify-content-center gy-4">
-                    <!-- ============================ Login Card Start ============================ -->
-                    <div class="col-xl-6 pe-xl-5">
-                        <div class="border border-gray-100 hover-border-main-600 transition-1 rounded-16 px-24 py-40 h-100">
-                            <div class="mb-24">
-                                <label for="email" class="text-neutral-900 text-lg mb-8 fw-medium">Email
-                                    address
-                                    <span class="text-danger">*</span>
+                        <!-- Flash Messages -->
+                        @if(session('status'))
+                            <div class="alert" style="background:rgba(5,150,105,0.15); border:1px solid rgba(5,150,105,0.4); color:#34d399; border-radius:8px; padding:12px 16px; margin-bottom:1.5rem; font-size:0.875rem;">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            <!-- Email -->
+                            <div class="mb-4">
+                                <label for="email" style="color:#94a3b8; font-size:0.875rem; font-weight:600; font-family:'Exo',sans-serif; margin-bottom:8px; display:block;">
+                                    Email <span style="color:#f97316;">*</span>
                                 </label>
-                                <input type="email" class="common-input @error('email') is-invalid @enderror" name="email" id="email" placeholder="Enter Email Address" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                                <input type="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    name="email" id="email"
+                                    placeholder="seu@email.com"
+                                    value="{{ old('email') }}"
+                                    required autocomplete="email" autofocus
+                                    style="border-radius:8px; padding:12px 16px;" />
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div style="color:#f87171; font-size:0.8rem; margin-top:4px;">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-24">
-                                <label for="password" class="text-neutral-900 text-lg mb-8 fw-medium">Password</label>
+
+                            <!-- Password -->
+                            <div class="mb-4">
+                                <label for="password" style="color:#94a3b8; font-size:0.875rem; font-weight:600; font-family:'Exo',sans-serif; margin-bottom:8px; display:block;">
+                                    Senha
+                                </label>
                                 <div class="position-relative">
-                                    <input type="password" class="common-input @error('password') is-invalid @enderror" name="password" id="password" placeholder="Enter Password"
-                                        required autocomplete="current-password" />
-                                    <span
-                                        class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y cursor-pointer ph ph-eye-slash"
-                                        id="#password"></span>
+                                    <input type="password"
+                                        class="form-control @error('password') is-invalid @enderror"
+                                        name="password" id="password"
+                                        placeholder="Sua senha"
+                                        required autocomplete="current-password"
+                                        style="border-radius:8px; padding:12px 16px;" />
+                                    <span class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y cursor-pointer ph ph-eye-slash"
+                                        id="#password" style="color:#64748b;"></span>
                                 </div>
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div style="color:#f87171; font-size:0.8rem; margin-top:4px;">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-24 mt-48">
-                                <div class="flex-align gap-48 flex-wrap">
-                                    <button type="submit" class="btn btn-main py-18 px-40">
-                                        {{ __('Log in') }}
-                                    </button>
-                                    <div class="form-check common-check">
-                                        <input class="form-check-input" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }} />
-                                        <label class="form-check-label flex-grow-1" for="remember">{{ __('Remember me') }}</label>
-                                    </div>
+
+                            <!-- Remember + Forgot -->
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="d-flex align-items-center gap-8">
+                                    <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}
+                                        style="background:#1e2030; border-color:rgba(124,58,237,0.4); width:16px; height:16px;" />
+                                    <label for="remember" style="color:#94a3b8; font-size:0.85rem; cursor:pointer;">Lembrar de mim</label>
                                 </div>
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}" style="color:#8878F5; font-size:0.85rem; text-decoration:none;">Esqueci a senha</a>
+                                @endif
                             </div>
-                            @if (Route::has('password.request'))
-                                <div class="mt-48">
-                                    <a href="{{ route('password.request') }}"
-                                        class="text-danger-600 text-sm fw-semibold hover-text-decoration-underline">{{ __('Forgot Your Password?') }}</a>
-                                </div>
-                            @endif
+
+                            <!-- Submit -->
+                            <button type="submit" class="btn-neon w-100" style="padding:14px; font-size:1rem; border-radius:8px; cursor:pointer; border:none;">
+                                <i class="ph ph-sign-in" style="margin-right:8px;"></i>Entrar
+                            </button>
+
+                            <!-- Divider -->
+                            <div class="text-center my-4" style="position:relative;">
+                                <div style="position:absolute; top:50%; left:0; right:0; height:1px; background:rgba(124,58,237,0.2);"></div>
+                                <span style="position:relative; background:#1e2030; padding:0 12px; color:#475569; font-size:0.8rem;">ou</span>
+                            </div>
+
+                            <!-- Register Link -->
+                            <div class="text-center">
+                                <span style="color:#64748b; font-size:0.875rem;">Ainda não tem conta? </span>
+                                <a href="{{ route('register') }}" style="color:#8878F5; font-weight:700; text-decoration:none; font-size:0.875rem;">Cadastre-se grátis</a>
+                            </div>
+                        </form>
+
+                        <!-- Trust badges -->
+                        <div class="d-flex align-items-center justify-content-center gap-16 mt-4 pt-4" style="border-top:1px solid rgba(124,58,237,0.1);">
+                            <span style="color:#475569; font-size:0.75rem;">🔒 SSL Seguro</span>
+                            <span style="color:#475569; font-size:0.75rem;">·</span>
+                            <span style="color:#475569; font-size:0.75rem;">✓ Dados protegidos</span>
+                            <span style="color:#475569; font-size:0.75rem;">·</span>
+                            <span style="color:#475569; font-size:0.75rem;">🎮 KG Coins</span>
                         </div>
                     </div>
-                    <!-- ============================ Login Card end ============================ -->
-
                 </div>
-            </form>
+            </div>
         </div>
     </section>
     <!-- =============================== Account Section End =========================== -->
 
-    <!-- ========================== Shipping Section Start ============================ -->
-    <section class="shipping mb-24" id="shipping">
-        <div class="container container-lg">
-            <div class="row gy-4">
-                <div class="col-xxl-3 col-sm-6" data-aos="zoom-in" data-aos-duration="400">
-                    <div class="shipping-item flex-align gap-16 rounded-16 bg-main-50 hover-bg-main-100 transition-2">
-                        <span class="w-56 h-56 flex-center rounded-circle bg-main-600 text-white text-32 flex-shrink-0"><i
-                                class="ph-fill ph-car-profile"></i></span>
-                        <div class="">
-                            <h6 class="mb-0">Free Shipping</h6>
-                            <span class="text-sm text-heading">Free shipping all over the US</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-sm-6" data-aos="zoom-in" data-aos-duration="600">
-                    <div class="shipping-item flex-align gap-16 rounded-16 bg-main-50 hover-bg-main-100 transition-2">
-                        <span class="w-56 h-56 flex-center rounded-circle bg-main-600 text-white text-32 flex-shrink-0"><i
-                                class="ph-fill ph-hand-heart"></i></span>
-                        <div class="">
-                            <h6 class="mb-0">100% Satisfaction</h6>
-                            <span class="text-sm text-heading">Free shipping all over the US</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800">
-                    <div class="shipping-item flex-align gap-16 rounded-16 bg-main-50 hover-bg-main-100 transition-2">
-                        <span class="w-56 h-56 flex-center rounded-circle bg-main-600 text-white text-32 flex-shrink-0"><i
-                                class="ph-fill ph-credit-card"></i></span>
-                        <div class="">
-                            <h6 class="mb-0">Secure Payments</h6>
-                            <span class="text-sm text-heading">Free shipping all over the US</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-sm-6" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="shipping-item flex-align gap-16 rounded-16 bg-main-50 hover-bg-main-100 transition-2">
-                        <span class="w-56 h-56 flex-center rounded-circle bg-main-600 text-white text-32 flex-shrink-0"><i
-                                class="ph-fill ph-chats"></i></span>
-                        <div class="">
-                            <h6 class="mb-0">24/7 Support</h6>
-                            <span class="text-sm text-heading">Free shipping all over the US</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================== Shipping Section End ============================ -->
-
     <!-- ========================== footer area ============================ -->
-    @include('frontend.includes.footers.footerTwo')
+    @include('frontend.includes.footers.footerOne')
     <!-- ========================== footer area end ============================ -->
 @endsection
 

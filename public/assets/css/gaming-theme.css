@@ -1,0 +1,1355 @@
+/* ================================================================
+   GAMING THEME - KG Coins Marketplace
+   Estilo: Dark Gaming / Loja de Coins como MMOExp
+   ================================================================ */
+
+/* ---- RESET & BASE DARK ---- */
+body {
+    background-color: #13141e !important;
+    color: #e2e8f0 !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading-color,
+[class*="text-heading"] {
+    color: #f1f5f9 !important;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+/* ---- NEON COLOR OVERRIDES ---- */
+.text-main-600,
+[class*="text-main-6"] {
+    color: #8878F5 !important;
+}
+
+.bg-main-600,
+[class*="bg-main-6"] {
+    background-color: #6B5EF0 !important;
+}
+
+.btn-main,
+.btn-main-outline {
+    background: linear-gradient(135deg, #6B5EF0, #4B38CC) !important;
+    border-color: #6B5EF0 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(107, 94, 240, 0.4) !important;
+    transition: all 0.3s ease !important;
+    font-family: "Exo", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-main:hover {
+    background: linear-gradient(135deg, #5A4EE0, #3D2DB8) !important;
+    box-shadow: 0 6px 25px rgba(107, 94, 240, 0.6) !important;
+    transform: translateY(-1px);
+}
+
+.hover-bg-main-600:hover {
+    background-color: #6B5EF0 !important;
+}
+
+.hover-bg-main-800:hover {
+    background-color: #4B38CC !important;
+}
+
+/* ---- BUTTONS NEON ---- */
+.btn-neon {
+    background: linear-gradient(135deg, #6B5EF0, #4B38CC);
+    border: 1px solid rgba(136, 120, 245, 0.5);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(107, 94, 240, 0.5);
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background: linear-gradient(135deg, #5A4EE0, #3D2DB8);
+    box-shadow: 0 0 35px rgba(107, 94, 240, 0.8);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-neon-cyan {
+    background: transparent;
+    border: 1px solid #8878F5;
+    color: #8878F5;
+    box-shadow: 0 0 15px rgba(136, 120, 245, 0.3);
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-neon-cyan:hover {
+    background: #8878F5;
+    color: #13141e;
+    box-shadow: 0 0 30px rgba(136, 120, 245, 0.6);
+    transform: translateY(-2px);
+}
+
+/* ---- CARDS GAMING ---- */
+.game-card {
+    background: #1e2030;
+    border: 1px solid rgba(107, 94, 240, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.game-card:hover {
+    border-color: rgba(107, 94, 240, 0.6);
+    box-shadow: 0 8px 32px rgba(107, 94, 240, 0.3);
+    transform: translateY(-4px);
+}
+
+.game-card__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.game-card__body {
+    padding: 1rem;
+}
+
+.game-card__title {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.game-card__subtitle {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.game-card__price {
+    font-family: "Exo", sans-serif;
+    font-weight: 800;
+    color: #f97316;
+    font-size: 1.1rem;
+}
+
+.game-card__price-from {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.game-card__btn {
+    background: linear-gradient(135deg, #6B5EF0, #4B38CC);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: "Exo", sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.game-card__btn:hover {
+    background: linear-gradient(135deg, #5A4EE0, #3D2DB8);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(107, 94, 240, 0.5);
+}
+
+/* ---- BADGES GAMING ---- */
+.badge-game {
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: "Exo", sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.badge-hot { background: #dc2626; color: #fff; }
+.badge-new { background: #059669; color: #fff; }
+.badge-sale { background: #f97316; color: #fff; }
+.badge-popular { background: #6B5EF0; color: #fff; }
+.badge-gold { background: #f59e0b; color: #13141e; }
+
+.badge-absolute {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+/* ---- SECTIONS DARK ---- */
+.section-dark {
+    background-color: #13141e;
+    color: #e2e8f0;
+}
+
+.section-dark-2 {
+    background-color: #1a1c28;
+    color: #e2e8f0;
+}
+
+.section-dark-3 {
+    background-color: #1e2030;
+    color: #e2e8f0;
+}
+
+.section-gaming {
+    background: linear-gradient(135deg, #13141e 0%, #17133a 50%, #13141e 100%);
+}
+
+/* ---- GAME CATEGORY CARDS ---- */
+.game-category-card {
+    background: linear-gradient(135deg, #1e2030, #1a1c28);
+    border: 1px solid rgba(107, 94, 240, 0.2);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.game-category-card:hover {
+    border-color: #6B5EF0;
+    box-shadow: 0 0 30px rgba(107, 94, 240, 0.3), inset 0 0 30px rgba(107, 94, 240, 0.05);
+    transform: translateY(-6px);
+    color: inherit;
+}
+
+.game-category-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(107, 94, 240, 0.5));
+}
+
+.game-category-card h4 {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.game-category-card p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* ---- NEON GLOW ICON ---- */
+.icon-neon {
+    color: #8878F5;
+    filter: drop-shadow(0 0 8px rgba(136, 120, 245, 0.7));
+}
+
+.icon-neon-cyan {
+    color: #B8B0FA;
+    filter: drop-shadow(0 0 8px rgba(103, 232, 249, 0.7));
+}
+
+.icon-neon-orange {
+    color: #fb923c;
+    filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.7));
+}
+
+/* ---- HEADER DARK ---- */
+.header-gaming {
+    background: rgba(13, 15, 26, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-top-gaming {
+    background: linear-gradient(90deg, #0e0f17, #1c1535, #0e0f17);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.3);
+    padding: 8px 0;
+    font-size: 0.8rem;
+}
+
+.header-top-gaming .marquee-text {
+    color: #94a3b8;
+}
+
+.header-top-gaming .marquee-text span {
+    color: #8878F5;
+    font-weight: 700;
+}
+
+/* ---- NAVBAR DARK ---- */
+.navbar-gaming {
+    background: rgba(13, 15, 26, 0.98);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.15);
+}
+
+.navbar-gaming .nav-link {
+    color: #cbd5e1 !important;
+    font-family: "Exo", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 8px 14px !important;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.navbar-gaming .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6B5EF0, #8878F5);
+    transition: width 0.3s ease;
+}
+
+.navbar-gaming .nav-link:hover {
+    color: #8878F5 !important;
+}
+
+.navbar-gaming .nav-link:hover::after {
+    width: 80%;
+}
+
+/* ---- LOGO ---- */
+.logo-gaming {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #8878F5, #B8B0FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.logo-gaming:hover {
+    background: linear-gradient(135deg, #c4b5fd, #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---- HERO BANNER GAMING ---- */
+.banner-gaming {
+    background: linear-gradient(135deg, #13141e 0%, #17133a 40%, #080d1a 100%);
+    min-height: 520px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-gaming::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(107, 94, 240, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(136, 120, 245, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Stars/particles effect */
+.banner-gaming::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 45%, rgba(167,139,250,0.4) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.banner-gaming__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(107, 94, 240, 0.2);
+    border: 1px solid rgba(107, 94, 240, 0.4);
+    color: #8878F5;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: "Exo", sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+}
+
+.banner-gaming__tag::before {
+    content: '⚡';
+}
+
+.banner-gaming__title {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 40px rgba(107, 94, 240, 0.4);
+}
+
+.banner-gaming__title span {
+    background: linear-gradient(135deg, #8878F5, #B8B0FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.banner-gaming__subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Inter", sans-serif;
+}
+
+.banner-gaming__stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.banner-gaming__stat {
+    text-align: center;
+}
+
+.banner-gaming__stat-value {
+    font-family: "Exo", sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #8878F5;
+    display: block;
+}
+
+.banner-gaming__stat-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---- GAMES STRIP/SLIDER ---- */
+.games-strip {
+    background: #1a1c28;
+    border-top: 1px solid rgba(107, 94, 240, 0.15);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.15);
+    padding: 1.5rem 0;
+}
+
+.game-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(26, 29, 46, 0.8);
+    border: 1px solid rgba(107, 94, 240, 0.2);
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #cbd5e1;
+    font-family: "Exo", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.game-pill:hover {
+    border-color: #6B5EF0;
+    color: #8878F5;
+    background: rgba(107, 94, 240, 0.1);
+    box-shadow: 0 4px 12px rgba(107, 94, 240, 0.2);
+}
+
+.game-pill img {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* ---- SECTION TITLES ---- */
+.section-title-gaming {
+    font-family: "Exo", sans-serif;
+    font-weight: 800;
+    color: #f1f5f9;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.section-title-gaming span {
+    background: linear-gradient(135deg, #8878F5, #B8B0FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle-gaming {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.section-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #6B5EF0, #8878F5);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- WHY CHOOSE US CARDS ---- */
+.why-card {
+    background: linear-gradient(135deg, #1e2030, #1a1c28);
+    border: 1px solid rgba(107, 94, 240, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.why-card:hover {
+    border-color: rgba(107, 94, 240, 0.5);
+    box-shadow: 0 8px 30px rgba(107, 94, 240, 0.2);
+    transform: translateY(-4px);
+}
+
+.why-card .icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: rgba(107, 94, 240, 0.15);
+    border: 1px solid rgba(107, 94, 240, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 1.75rem;
+    transition: all 0.3s ease;
+}
+
+.why-card:hover .icon-wrap {
+    background: rgba(107, 94, 240, 0.25);
+    box-shadow: 0 0 25px rgba(107, 94, 240, 0.4);
+}
+
+.why-card h5 {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+}
+
+.why-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* ---- HOT DEALS / FLASH SALE ---- */
+.flash-sale-section {
+    background: linear-gradient(135deg, #13141e, #1c1535, #13141e);
+    border-top: 1px solid rgba(107, 94, 240, 0.2);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.2);
+}
+
+.flash-sale-timer {
+    background: rgba(107, 94, 240, 0.1);
+    border: 1px solid rgba(107, 94, 240, 0.3);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.timer-unit {
+    text-align: center;
+}
+
+.timer-unit__value {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #8878F5;
+    display: block;
+    line-height: 1;
+}
+
+.timer-unit__label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timer-separator {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.5rem;
+    color: #6B5EF0;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ---- MARQUEE GAMES SUPPORTED ---- */
+.marquee-gaming {
+    background: #1a1c28;
+    border-top: 1px solid rgba(107, 94, 240, 0.1);
+    border-bottom: 1px solid rgba(107, 94, 240, 0.1);
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.marquee-gaming .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 2rem;
+    color: #64748b;
+    font-family: "Exo", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.marquee-gaming .marquee-item::after {
+    content: '◆';
+    color: #6B5EF0;
+    font-size: 0.5rem;
+    margin-left: 1rem;
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonial-card {
+    background: #1e2030;
+    border: 1px solid rgba(107, 94, 240, 0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    border-color: rgba(107, 94, 240, 0.4);
+    box-shadow: 0 4px 20px rgba(107, 94, 240, 0.15);
+}
+
+.testimonial-card .stars {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-card p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .author {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+}
+
+.testimonial-card .author-game {
+    color: #8878F5;
+    font-size: 0.75rem;
+}
+
+/* ---- STATS SECTION ---- */
+.stats-gaming {
+    background: linear-gradient(90deg, rgba(107, 94, 240, 0.1), rgba(136, 120, 245, 0.1));
+    border: 1px solid rgba(107, 94, 240, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item__value {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #8878F5, #B8B0FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-item__label {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ---- FOOTER GAMING ---- */
+.footer-gaming {
+    background: #0e0f17;
+    border-top: 1px solid rgba(107, 94, 240, 0.2);
+}
+
+.footer-gaming .footer-logo {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #8878F5, #B8B0FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.footer-gaming p {
+    color: #64748b;
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.footer-gaming h6 {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+.footer-gaming ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-gaming ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-gaming ul li a {
+    color: #64748b;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-gaming ul li a:hover {
+    color: #8878F5;
+    padding-left: 4px;
+}
+
+.footer-gaming .social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.footer-gaming .social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(107, 94, 240, 0.1);
+    border: 1px solid rgba(107, 94, 240, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8878F5;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-gaming .social-link:hover {
+    background: #6B5EF0;
+    border-color: #6B5EF0;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(107, 94, 240, 0.5);
+}
+
+.footer-gaming .footer-bottom {
+    border-top: 1px solid rgba(107, 94, 240, 0.1);
+    padding: 1.25rem 0;
+    margin-top: 2rem;
+}
+
+.footer-gaming .footer-bottom p {
+    color: #374151;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #94a3b8;
+    font-family: "Exo", sans-serif;
+}
+
+/* ---- SEARCH BOX DARK ---- */
+.search-box {
+    background: rgba(13, 15, 26, 0.98) !important;
+}
+
+.search-box .form-control {
+    background: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.4) !important;
+    color: #f1f5f9 !important;
+}
+
+.search-box .form-control:focus {
+    border-color: #6B5EF0 !important;
+    box-shadow: 0 0 0 3px rgba(107, 94, 240, 0.2) !important;
+}
+
+/* ---- DROPDOWN MENUS ---- */
+.common-dropdown {
+    background: #1e2030 !important;
+    border: 1px solid rgba(107, 94, 240, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(107, 94, 240, 0.2) !important;
+}
+
+.common-dropdown a {
+    color: #94a3b8 !important;
+}
+
+.common-dropdown a:hover {
+    background: rgba(107, 94, 240, 0.1) !important;
+    color: #8878F5 !important;
+}
+
+/* ---- GENERAL FORM DARK ---- */
+.form-control {
+    background: #1e2030;
+    border-color: rgba(107, 94, 240, 0.3);
+    color: #f1f5f9;
+}
+
+.form-control:focus {
+    background: #1e2030;
+    border-color: #6B5EF0;
+    color: #f1f5f9;
+    box-shadow: 0 0 0 3px rgba(107, 94, 240, 0.2);
+}
+
+.form-control::placeholder {
+    color: #475569;
+}
+
+/* ---- SHOP PAGE ---- */
+.shop-sidebar {
+    background: #1a1c28;
+    border: 1px solid rgba(107, 94, 240, 0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.shop-sidebar h6 {
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(107, 94, 240, 0.15);
+}
+
+/* ---- PRODUCT DETAIL PAGE ---- */
+.product-detail-gaming {
+    background: #1a1c28;
+    border: 1px solid rgba(107, 94, 240, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+/* ---- CART / CHECKOUT DARK ---- */
+.cart-table-dark {
+    background: #1e2030;
+    border: 1px solid rgba(107, 94, 240, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cart-table-dark th {
+    background: #1a1c28;
+    color: #8878F5;
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+.cart-table-dark td {
+    color: #e2e8f0;
+    border-color: rgba(107, 94, 240, 0.1) !important;
+}
+
+/* ---- AUTH PAGES ---- */
+.auth-gaming {
+    background: linear-gradient(135deg, #13141e, #17133a, #13141e);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.auth-card {
+    background: #1e2030;
+    border: 1px solid rgba(107, 94, 240, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(107, 94, 240, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(107, 94, 240, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ---- LOYALTY DASHBOARD DARK ---- */
+.loyalty-card {
+    background: #1e2030;
+    border: 1px solid rgba(107, 94, 240, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.loyalty-card:hover {
+    border-color: rgba(107, 94, 240, 0.5);
+    box-shadow: 0 4px 20px rgba(107, 94, 240, 0.2);
+}
+
+/* ---- MISC ---- */
+.border-gaming {
+    border-color: rgba(107, 94, 240, 0.3) !important;
+}
+
+.bg-gaming-card {
+    background: #1e2030 !important;
+}
+
+.bg-gaming-dark {
+    background: #13141e !important;
+}
+
+.text-neon-purple {
+    color: #8878F5 !important;
+}
+
+.text-neon-cyan {
+    color: #B8B0FA !important;
+}
+
+.text-gaming-orange {
+    color: #f97316 !important;
+}
+
+.text-gaming-gold {
+    color: #f59e0b !important;
+}
+
+/* ---- ANIMATED NEON BORDER ---- */
+.neon-border-animated {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.neon-border-animated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(45deg, #6B5EF0, #8878F5, #6B5EF0, #8878F5);
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---- HOVER GLOW CARD ---- */
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(107, 94, 240, 0.3);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    .banner-gaming {
+        min-height: 400px;
+    }
+
+    .banner-gaming__title {
+        font-size: 1.75rem;
+    }
+
+    .banner-gaming__stats {
+        gap: 1rem;
+    }
+
+    .stat-item__value {
+        font-size: 1.75rem;
+    }
+
+    .game-category-card {
+        padding: 1.25rem;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ---- OVERRIDE WHITE BACKGROUNDS ---- */
+.bg-white {
+    background-color: #1e2030 !important;
+}
+
+.bg-light-100,
+.bg-color-one,
+.bg-color-two,
+.bg-color-three {
+    background-color: #1a1c28 !important;
+}
+
+/* Card and product items */
+.product-card,
+[class*="product-card"],
+[class*="card-item"] {
+    background: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+/* Text on dark backgrounds */
+.text-gray-500,
+.text-gray-600,
+.text-gray-700 {
+    color: #94a3b8 !important;
+}
+
+.text-heading {
+    color: #f1f5f9 !important;
+}
+
+/* Price colors */
+.text-danger-600,
+[class*="text-danger-6"] {
+    color: #f97316 !important;
+}
+
+/* Slick dots */
+.slick-dots li.slick-active button::before {
+    color: #6B5EF0 !important;
+}
+
+.slick-dots li button::before {
+    color: #475569 !important;
+}
+
+/* ---- EXTRA DARK OVERRIDES FOR ALL PAGES ---- */
+
+/* Section backgrounds */
+section.shop,
+section.cart,
+section.account,
+section.checkout,
+section.wishlist,
+section.blog,
+section.contact {
+    background-color: #13141e !important;
+}
+
+/* Common input dark */
+.common-input {
+    background: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.3) !important;
+    color: #f1f5f9 !important;
+}
+
+.common-input:focus {
+    border-color: #6B5EF0 !important;
+    box-shadow: 0 0 0 3px rgba(107, 94, 240, 0.2) !important;
+    background: #1e2030 !important;
+    color: #f1f5f9 !important;
+}
+
+.common-input::placeholder {
+    color: #475569 !important;
+}
+
+/* Shop sidebar boxes */
+.shop-sidebar__box {
+    background: #1a1c28 !important;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+.shop-sidebar__box h6 {
+    color: #f1f5f9 !important;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+.shop-sidebar__box a {
+    color: #94a3b8 !important;
+}
+
+.shop-sidebar__box a:hover {
+    color: #8878F5 !important;
+}
+
+/* Cart table dark */
+.cart-table {
+    background: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+.cart-table thead th {
+    background: #1a1c28 !important;
+    color: #8878F5 !important;
+    border-color: rgba(107, 94, 240, 0.2) !important;
+    font-family: "Exo", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.cart-table td {
+    border-color: rgba(107, 94, 240, 0.1) !important;
+    color: #e2e8f0 !important;
+}
+
+/* Breadcrumb dark */
+.breadcrumb,
+[class*="breadcrumb"] {
+    background: #1a1c28 !important;
+    color: #94a3b8 !important;
+}
+
+/* Shipping items gaming */
+.shipping-item {
+    background: rgba(107, 94, 240, 0.07) !important;
+    border: 1px solid rgba(107, 94, 240, 0.2) !important;
+}
+
+.shipping-item h6 {
+    color: #f1f5f9 !important;
+}
+
+/* Progress bars */
+.progress {
+    background: rgba(107, 94, 240, 0.1) !important;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #6B5EF0, #8878F5) !important;
+}
+
+/* Borders */
+.border-gray-100,
+.border-gray-200 {
+    border-color: rgba(107, 94, 240, 0.2) !important;
+}
+
+/* Select elements */
+select.js-example-basic-single,
+select.form-select {
+    background-color: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.3) !important;
+    color: #94a3b8 !important;
+}
+
+/* Select2 dark */
+.select2-container--default .select2-selection--single {
+    background-color: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.3) !important;
+    color: #94a3b8 !important;
+}
+
+.select2-dropdown {
+    background-color: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.3) !important;
+}
+
+.select2-results__option {
+    color: #94a3b8 !important;
+}
+
+.select2-results__option--highlighted {
+    background-color: rgba(107, 94, 240, 0.15) !important;
+    color: #8878F5 !important;
+}
+
+/* Box shadows dark */
+.box-shadow-md,
+.box-shadow-3xl,
+.box-shadow-4xl {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Hover bg overrides */
+.hover-bg-gray-100:hover {
+    background-color: rgba(107, 94, 240, 0.1) !important;
+}
+
+.hover-bg-neutral-100:hover {
+    background-color: rgba(107, 94, 240, 0.1) !important;
+}
+
+/* Text neutral */
+.text-neutral-600,
+.text-neutral-900 {
+    color: #e2e8f0 !important;
+}
+
+/* Check inputs */
+.form-check-input {
+    background-color: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.4) !important;
+}
+
+.form-check-input:checked {
+    background-color: #6B5EF0 !important;
+    border-color: #6B5EF0 !important;
+}
+
+/* Quantity inputs */
+.quantity-box {
+    background: #1e2030 !important;
+    border-color: rgba(107, 94, 240, 0.3) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Alerts */
+.alert-success {
+    background: rgba(5, 150, 105, 0.15) !important;
+    border-color: rgba(5, 150, 105, 0.4) !important;
+    color: #34d399 !important;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    color: #f87171 !important;
+}
+
+/* Toastr notifications gaming */
+.toast-success {
+    background-color: rgba(5, 150, 105, 0.9) !important;
+}
+
+.toast-error {
+    background-color: rgba(239, 68, 68, 0.9) !important;
+}
+
+/* Preloader dark */
+.preloader,
+.loader {
+    background-color: #13141e !important;
+}
+
+/* Range slider */
+.ui-widget-header {
+    background: linear-gradient(90deg, #6B5EF0, #8878F5) !important;
+}
+
+.ui-slider-handle {
+    border-color: #6B5EF0 !important;
+    background: #1e2030 !important;
+}
+
+/* Overlay */
+.overlay,
+.side-overlay {
+    background: rgba(13, 15, 26, 0.85) !important;
+}
+
+/* Back to top button */
+.back-to-top,
+.progress-wrap {
+    background: linear-gradient(135deg, #6B5EF0, #4B38CC) !important;
+}
+
+/* Star ratings */
+.text-warning-600,
+[class*="text-warning-6"] {
+    color: #f59e0b !important;
+}
+
+/* Page body dark */
+body {
+    background-color: #13141e !important;
+    color: #e2e8f0 !important;
+}
+

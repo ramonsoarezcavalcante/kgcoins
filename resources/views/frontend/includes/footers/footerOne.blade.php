@@ -1,185 +1,145 @@
-<!-- ========================== footer area Start ============================ -->
-    <footer class="footer py-120">
-        <div class="container container-lg">
-            <div class="footer-item-wrapper d-flex align-items-start flex-wrap">
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="200">
-                    <div class="max-w-340">
-                        <div class="footer-item__logo">
-                            <a href="{{ route('home') }}"> <img src="{{ asset('assets/images/logo/logo.png') }}" alt="img"></a>
-                        </div>
-                        <p class="mb-28 text-heading">We're Grocery Shop, an innovative team of food supliers.</p>
+<!-- ========================== Footer Gaming Start ============================ -->
+<footer class="footer-gaming pt-5 pb-0">
+    <div class="container container-lg pt-4">
+        <div class="row g-5">
 
-                        <div class="d-flex flex-column gap-8">
-                            <p class="text-heading fw-medium">2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
-                            <a href="mailto:support@example.com"
-                                class="text-heading fw-medium hover-text-main-600">support@example.com</a>
-                            <a href="tel:+(406)555-0120" class="text-heading fw-medium hover-text-main-600">+ (406)
-                                555-0120</a>
-                        </div>
-                    </div>
+            <!-- Coluna 1: Logo + Sobre + Social -->
+            <div class="col-lg-4 col-md-6">
+                <a href="{{ route('home') }}" class="footer-logo mb-3 d-inline-flex align-items-center text-decoration-none">
+                    <img src="{{ asset('assets/images/logo/kgcoins-logo.png') }}"
+                         alt="KG Coins"
+                         style="height: 40px; width: auto; object-fit: contain;"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span style="display:none; align-items:center; font-family:'Orbitron',sans-serif; font-weight:700; font-size:1.1rem; color:#8878F5;">
+                        <i class="ph ph-coins" style="margin-right:4px;"></i>KG Coins
+                    </span>
+                </a>
+                <p>
+                    A maior loja de coins e moedas para jogos do Brasil. Compre com segurança, entrega instantânea e os melhores preços do mercado.
+                </p>
+                <div class="d-flex gap-6 mt-3" style="flex-wrap:wrap;">
+                    <span class="badge-game badge-popular">✓ Entrega Garantida</span>
+                    <span class="badge-game badge-new">✓ Antifraude</span>
+                    <span class="badge-game" style="background:rgba(245,158,11,0.2); color:#f59e0b;">✓ SSL 256-bit</span>
                 </div>
-
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="400">
-                    <h6 class="footer-item__title">Information</h6>
-                    <ul class="footer-menu">
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Become a Vendor</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Affiliate Program</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Privacy Policy</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Our Suppliers</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Extended Plan</a>
-                        </li>
-                        <li class="">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Community</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="600">
-                    <h6 class="footer-item__title">Customer Support</h6>
-                    <ul class="footer-menu">
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Help Center</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('contact')}}" class="text-heading hover-text-main-600">Contact Us</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Report Abuse</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Submit and Dispute</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Policies & Rules</a>
-                        </li>
-                        <li class="">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Online Shopping</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="800">
-                    <h6 class="footer-item__title">My Account</h6>
-                    <ul class="footer-menu">
-                        <li class="mb-16">
-                            <a href="{{route('account')}}" class="text-heading hover-text-main-600">My Account</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Order History</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('cart')}}" class="text-heading hover-text-main-600">Shoping Cart</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Compare</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="javascript:void(0)" class="text-heading hover-text-main-600">Help Ticket</a>
-                        </li>
-                        <li class="">
-                            <a href="{{route('wishlist')}}" class="text-heading hover-text-main-600">Wishlist</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="1000">
-                    <h6 class="footer-item__title">Daily Groceries</h6>
-                    <ul class="footer-menu">
-                        <li class="mb-16">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Dairy & Eggs</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Meat & Seafood</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Breakfast Food</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Household Supplies</a>
-                        </li>
-                        <li class="mb-16">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Bread & Bakery</a>
-                        </li>
-                        <li class="">
-                            <a href="{{route('shop')}}" class="text-heading hover-text-main-600">Pantry Staples</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-item" data-aos="fade-up" data-aos-duration="1200">
-                    <h6 class="">Shop on The Go</h6>
-                    <p class="mb-16">MarketPro App is available. Get it now</p>
-                    <div class="my-32">
-                        <div class="flex-align gap-8">
-                            <div class="bg-white rounded-10 p-1 box-shadow-5xl">
-                                <img src="{{ asset('assets/images/thumbs/qr-code.png') }}" alt="QR Code">
-                            </div>
-                            <div class="d-flex flex-column gap-16">
-                                <a href="https://www.apple.com/app-store"
-                                    class="py-14 px-32 d-flex justify-content-center align-items-center gap-8 fw-medium text-heading text-sm hover-bg-main-600 hover-text-white box-shadow-6xl rounded-6">
-                                    <i class="ph-fill ph-apple-logo"></i>
-                                    Google play
-                                </a>
-                                <a href="https://www.apple.com/app-store"
-                                    class="py-14 px-32 d-flex justify-content-center align-items-center gap-8 fw-medium text-heading text-sm hover-bg-main-600 hover-text-white box-shadow-6xl rounded-6">
-                                    <img src="{{ asset('assets/images/icon/google-play.svg') }}" alt="Play Store">
-                                    Google play
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mt-24">
-                            <img src="{{ asset('assets/images/thumbs/method.png') }}" alt="Method ">
-                        </div>
-                    </div>
+                <div class="social-links mt-3">
+                    <a href="javascript:void(0)" class="social-link" title="Discord">
+                        <i class="ph ph-discord-logo"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="social-link" title="YouTube">
+                        <i class="ph ph-youtube-logo"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="social-link" title="Twitch">
+                        <i class="ph ph-twitch-logo"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="social-link" title="Twitter/X">
+                        <i class="ph ph-x-logo"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="social-link" title="Instagram">
+                        <i class="ph ph-instagram-logo"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </footer>
 
-    <!-- ============================ bottom Footer ============================ -->
-    <div class="bottom-footer py-8">
-        <div class="container container-lg">
-            <div class="bottom-footer__inner flex-between flex-wrap gap-16 py-16 border-top border-neutral-50">
-                <p class="bottom-footer__text text-heading wow fadeInLeft fw-medium">Copyright &copy; <span
-                        class="text-success-600 fw-semibold">2025</span> Ui-drops All Rights Reserved </p>
-                <div class="flex-align gap-8 flex-wrap wow fadeInRight">
-                    <ul class="flex-align gap-16">
-                        <li>
-                            <a href="https://www.facebook.com"
-                                class="w-44 h-44 flex-center bg-white shadow-sm text-main-600 text-xl rounded-circle hover-bg-main-600 hover-text-white">
-                                <i class="ph-fill ph-facebook-logo"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.twitter.com"
-                                class="w-44 h-44 flex-center bg-white shadow-sm text-main-600 text-xl rounded-circle hover-bg-main-600 hover-text-white">
-                                <i class="ph-fill ph-twitter-logo"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com"
-                                class="w-44 h-44 flex-center bg-white shadow-sm text-main-600 text-xl rounded-circle hover-bg-main-600 hover-text-white">
-                                <i class="ph-fill ph-instagram-logo"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.pinterest.com"
-                                class="w-44 h-44 flex-center bg-white shadow-sm text-main-600 text-xl rounded-circle hover-bg-main-600 hover-text-white">
-                                <i class="ph-fill ph-linkedin-logo"></i>
-                            </a>
-                        </li>
-                    </ul>
+            <!-- Coluna 2: Games Populares -->
+            <div class="col-lg-2 col-md-6">
+                <h6>Games Populares</h6>
+                <ul>
+                    <li><a href="{{ route('shop') }}">🔥 Diablo IV</a></li>
+                    <li><a href="{{ route('shop') }}">🌌 Path of Exile 2</a></li>
+                    <li><a href="{{ route('shop') }}">⚽ FC 26</a></li>
+                    <li><a href="{{ route('shop') }}">⚔️ World of Warcraft</a></li>
+                    <li><a href="{{ route('shop') }}">💫 Final Fantasy XIV</a></li>
+                    <li><a href="{{ route('shop') }}">🗡️ Lost Ark</a></li>
+                    <li><a href="{{ route('shop') }}">🏰 Albion Online</a></li>
+                    <li><a href="{{ route('shop') }}">🌿 Runescape</a></li>
+                    <li><a href="{{ route('shop') }}" style="color:#8878F5 !important; font-weight:700;">Ver todos →</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Categorias -->
+            <div class="col-lg-2 col-md-6">
+                <h6>Categorias</h6>
+                <ul>
+                    <li><a href="{{ route('shop') }}">💰 Currency</a></li>
+                    <li><a href="{{ route('shop') }}">⚔️ Items</a></li>
+                    <li><a href="{{ route('shop') }}">🚀 Boosting</a></li>
+                    <li><a href="{{ route('shop') }}">🎮 Accounts</a></li>
+                    <li><a href="{{ route('shop') }}">🎁 Top-Up</a></li>
+                    <li><a href="{{ route('shop') }}">🎴 Gift Cards</a></li>
+                </ul>
+
+                <h6 class="mt-4">Minha Conta</h6>
+                <ul>
+                    @auth
+                        <li><a href="{{ route('loyalty.dashboard') }}">🏆 Fidelidade</a></li>
+                        <li><a href="{{ route('account') }}">👤 Perfil</a></li>
+                        <li><a href="{{ route('wishlist') }}">❤️ Wishlist</a></li>
+                    @endauth
+                    @guest
+                        <li><a href="{{ route('login') }}">Entrar</a></li>
+                        <li><a href="{{ route('register') }}">Cadastrar</a></li>
+                    @endguest
+                </ul>
+            </div>
+
+            <!-- Coluna 4: Suporte -->
+            <div class="col-lg-2 col-md-6">
+                <h6>Suporte</h6>
+                <ul>
+                    <li><a href="{{ route('contact') }}">📞 Contato</a></li>
+                    <li><a href="javascript:void(0)">❓ FAQ</a></li>
+                    <li><a href="javascript:void(0)">🔄 Política de Reembolso</a></li>
+                    <li><a href="javascript:void(0)">📋 Termos de Uso</a></li>
+                    <li><a href="javascript:void(0)">🔒 Privacidade</a></li>
+                    <li><a href="{{ route('blog') }}">📰 Blog / Notícias</a></li>
+                </ul>
+
+                <h6 class="mt-4">Contato</h6>
+                <ul>
+                    <li><a href="mailto:suporte@kgcoins.com.br">📧 suporte@kgcoins.com.br</a></li>
+                    <li>
+                        <a href="javascript:void(0)" style="display:flex; align-items:center; gap:6px;">
+                            <i class="ph ph-discord-logo" style="color:#7289da;"></i> Discord 24/7
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Coluna 5: Formas de Pagamento -->
+            <div class="col-lg-2 col-md-6">
+                <h6>Pagamento Seguro</h6>
+                <div class="d-flex flex-wrap gap-6 mb-3">
+                    <div class="payment-icon">PIX</div>
+                    <div class="payment-icon">Visa</div>
+                    <div class="payment-icon">Master</div>
+                    <div class="payment-icon">Boleto</div>
+                    <div class="payment-icon">PayPal</div>
+                    <div class="payment-icon">Elo</div>
                 </div>
+                <div style="background:rgba(124,58,237,0.1); border:1px solid rgba(124,58,237,0.2); border-radius:8px; padding:12px; margin-top:8px;">
+                    <div style="color:#8878F5; font-family:'Exo',sans-serif; font-weight:700; font-size:0.8rem; margin-bottom:4px;">🔒 Compra Segura</div>
+                    <div style="color:#64748b; font-size:0.75rem; line-height:1.4;">Seus dados protegidos com criptografia SSL de 256 bits</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-gaming footer-bottom mt-5">
+        <div class="container container-lg">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                <p style="color:#374151; font-size:0.8rem; margin:0;">
+                    © {{ date('Y') }} KG Coins. Todos os direitos reservados. |
+                    <a href="javascript:void(0)" style="color:#4b5563; text-decoration:none;">Termos</a> ·
+                    <a href="javascript:void(0)" style="color:#4b5563; text-decoration:none;">Privacidade</a>
+                </p>
+                <p style="color:#374151; font-size:0.75rem; margin:0;">
+                    Feito com ❤️ para gamers brasileiros · KG Coins não é afiliado às empresas dos jogos
+                </p>
             </div>
         </div>
     </div>
-<!-- ========================== footer area end ============================ -->
+</footer>
+<!-- ========================== Footer Gaming End ============================ -->

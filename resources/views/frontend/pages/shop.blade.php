@@ -1,26 +1,26 @@
 @extends('frontend.layouts.app')
-@section('title', 'Shop')
+@section('title', 'Loja de Coins - KG Coins')
 @section('content')
     <!-- ============================ header area ============================ -->
-    @include('frontend.includes.headers.headerTwo')
+    @include('frontend.includes.headers.headerOne')
     <!-- ============================ header area end ============================ -->
 
     <!-- ========================= Breadcrumb Start =============================== -->
-    <div class="breadcrumb mb-0 py-26 bg-main-two-50">
+    <div class="mb-0 py-20" style="background:#1a1c28; border-bottom:1px solid rgba(124,58,237,0.15);">
         <div class="container container-lg">
-            <div class="breadcrumb-wrapper flex-between flex-wrap gap-16">
-                <h6 class="mb-0">Shop</h6>
-                <ul class="flex-align gap-8 flex-wrap">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-16">
+                <h6 class="mb-0" style="font-family:'Exo',sans-serif; font-weight:700; color:#f1f5f9;">🛒 Loja de Coins</h6>
+                <ul class="flex-align gap-8 flex-wrap" style="list-style:none; margin:0; padding:0;">
                     <li class="text-sm">
-                        <a href="{{route('home')}}" class="text-gray-900 flex-align gap-8 hover-text-main-600">
+                        <a href="{{route('home')}}" class="flex-align gap-8" style="color:#64748b; text-decoration:none;">
                             <i class="ph ph-house"></i>
-                            Home
+                            Início
                         </a>
                     </li>
-                    <li class="flex-align">
+                    <li class="flex-align" style="color:#4b5563;">
                         <i class="ph ph-caret-right"></i>
                     </li>
-                    <li class="text-sm text-main-600">Product Shop</li>
+                    <li class="text-sm" style="color:#8878F5;">Loja de Coins</li>
                 </ul>
             </div>
         </div>
@@ -38,62 +38,78 @@
                             class="shop-sidebar__close d-lg-none d-flex w-32 h-32 flex-center border border-gray-100 rounded-circle hover-bg-main-600 position-absolute inset-inline-end-0 me-10 mt-8 hover-text-white hover-border-main-600">
                             <i class="ph ph-x"></i>
                         </button>
-                        <div class="shop-sidebar__box border border-gray-100 rounded-8 p-32 mb-32">
-                            <h6 class="text-xl border-bottom border-gray-100 pb-24 mb-24">
-                                Product Category
-                            </h6>
-                            <ul class="max-h-540 overflow-y-auto scroll-sm">
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Mobile &
-                                        Accessories (12)</a>
+                        <div class="shop-sidebar">
+                            <h6>🎮 Categorias</h6>
+                            <ul style="list-style:none; padding:0; margin:0;">
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem; transition:color 0.2s;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        💰 Game Currency (45)</a>
                                 </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Laptop
-                                        (12)</a>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        ⚔️ Game Items (28)</a>
                                 </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Electronics
-                                        (12)</a>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🚀 Boosting (19)</a>
                                 </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Smart Watch
-                                        (12)</a>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🎮 Accounts (12)</a>
                                 </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Storage
-                                        (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Portable
-                                        Devices (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Action
-                                        Camera (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Smart
-                                        Gadget (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Monitor
-                                        (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Smart TV
-                                        (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Camera
-                                        (12)</a>
-                                </li>
-                                <li class="mb-24">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Monitor
-                                        Stand (12)</a>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🎁 Top-Up (8)</a>
                                 </li>
                                 <li class="mb-0">
-                                    <a href="{{route('shop.details.two')}}" class="text-gray-900 hover-text-main-600">Headphone
-                                        (12)</a>
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🎴 Gift Cards (14)</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="shop-sidebar mt-4">
+                            <h6>🕹️ Por Game</h6>
+                            <ul style="list-style:none; padding:0; margin:0;">
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🔥 Diablo IV (18)</a>
+                                </li>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🌌 Path of Exile 2 (22)</a>
+                                </li>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        ⚽ FC 26 (15)</a>
+                                </li>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        ⚔️ WoW (11)</a>
+                                </li>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        💫 FFXIV (9)</a>
+                                </li>
+                                <li class="mb-16">
+                                    <a href="{{ route('shop') }}" style="color:#94a3b8; text-decoration:none; font-size:0.875rem;"
+                                        onmouseover="this.style.color='#8878F5'" onmouseout="this.style.color='#94a3b8'">
+                                        🗡️ Lost Ark (8)</a>
+                                </li>
+                                <li class="mb-0">
+                                    <a href="{{ route('shop') }}" style="color:#8878F5; text-decoration:none; font-size:0.875rem; font-weight:700;">
+                                        Ver todos os games →</a>
                                 </li>
                             </ul>
                         </div>

@@ -2,7 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Title -->
-<title> MarketPro - E-commerce HTML Template | @yield('title')</title>
+<title>KG Coins - @yield('title')</title>
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}">
 <!-- Bootstrap -->
@@ -19,5 +19,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
 <!-- Main css -->
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<!-- Gaming Theme css -->
+<link rel="stylesheet" href="{{ asset('assets/css/gaming-theme.css') }}">
 <!-- Toastr css -->
 <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
