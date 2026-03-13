@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Badge;
+use App\Models\Order;
 use App\Models\PointsTransaction;
+use App\Models\Referral;
+use App\Models\Setting;
 use App\Models\Tier;
 use App\Models\User;
 use App\Services\LoyaltyService;
@@ -39,8 +42,11 @@ class AdminLoyaltyController extends Controller
         $recentTransactions = PointsTransaction::with('user', 'order')->latest()->limit(10)->get();
         $tiers = Tier::all();
         $badges = Badge::all();
+        $settings = [
+            'default_commission_percentage' => Setting::get('default_commission_percentage', '10.00'),
+        ];
 
-        return view('admin.loyalty.dashboard', compact('stats', 'topUsers', 'recentTransactions', 'tiers', 'badges'));
+        return view('admin.loyalty.dashboard', compact('stats', 'topUsers', 'recentTransactions', 'tiers', 'badges', 'settings'));
     }
 
     /**
@@ -110,8 +116,8 @@ class AdminLoyaltyController extends Controller
 
         $tier->update($validated);
 
-        // Update users in this tier
-        $this->loyaltyService->updateTier($tier);
+        // Recalcular tier de todos os usuários após mudança nos critérios
+        User::all()->each(fn(User $user) => $this->loyaltyService->updateTier($user));
 
         return redirect()->route('admin.loyalty.tiers.index')
             ->with('success', 'Tier atualizado com sucesso!');
@@ -145,7 +151,8 @@ class AdminLoyaltyController extends Controller
      */
     public function createBadge(): View
     {
-        return view('admin.loyalty.badges.create');
+        $tiers = Tier::orderBy('min_points')->get();
+        return view('admin.loyalty.badges.create', compact('tiers'));
     }
 
     /**
@@ -154,33 +161,24 @@ class AdminLoyaltyController extends Controller
     public function storeBadge(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|unique:badges|max:255',
-            'description' => 'nullable|string|max:500',
-            'icon' => 'nullable|string|max:255',
-            'unlock_condition_type' => 'nullable|in:points_threshold,first_purchase,tier_reached,purchases_count',
-            'unlock_condition_value' => 'nullable|numeric|min:0',
-            'is_active' => 'boolean',
+            'name'          => 'required|string|unique:badges|max:255',
+            'description'   => 'nullable|string|max:500',
+            'icon'          => 'nullable|string|max:255',
+            'is_active'     => 'nullable|boolean',
+            'unlock_type'   => 'nullable|in:points_threshold,first_purchase,tier_reached,purchases_count,manual',
+            'unlock_points' => 'nullable|integer|min:0',
+            'unlock_count'  => 'nullable|integer|min:1',
+            'unlock_tier'   => 'nullable|exists:tiers,id',
         ]);
 
-        $unlockCondition = null;
-        if ($validated['unlock_condition_type']) {
-            $unlockCondition = [
-                'type' => $validated['unlock_condition_type'],
-            ];
-
-            if (in_array($validated['unlock_condition_type'], ['points_threshold', 'tier_reached', 'purchases_count'])) {
-                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' :
-                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')]
-                    = $validated['unlock_condition_value'];
-            }
-        }
+        $unlockCondition = $this->buildUnlockCondition($validated);
 
         Badge::create([
-            'name' => $validated['name'],
-            'description' => $validated['description'],
-            'icon' => $validated['icon'] ?? '🎖️',
+            'name'             => $validated['name'],
+            'description'      => $validated['description'] ?? null,
+            'icon'             => $validated['icon'] ?? '🎖️',
             'unlock_condition' => $unlockCondition,
-            'is_active' => $validated['is_active'] ?? true,
+            'is_active'        => (bool) ($validated['is_active'] ?? true),
         ]);
 
         return redirect()->route('admin.loyalty.badges.index')
@@ -192,7 +190,8 @@ class AdminLoyaltyController extends Controller
      */
     public function editBadge(Badge $badge): View
     {
-        return view('admin.loyalty.badges.edit', compact('badge'));
+        $tiers = Tier::orderBy('min_points')->get();
+        return view('admin.loyalty.badges.edit', compact('badge', 'tiers'));
     }
 
     /**
@@ -201,37 +200,52 @@ class AdminLoyaltyController extends Controller
     public function updateBadge(Request $request, Badge $badge): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:badges,name,' . $badge->id,
-            'description' => 'nullable|string|max:500',
-            'icon' => 'nullable|string|max:255',
-            'unlock_condition_type' => 'nullable|in:points_threshold,first_purchase,tier_reached,purchases_count',
-            'unlock_condition_value' => 'nullable|numeric|min:0',
-            'is_active' => 'boolean',
+            'name'          => 'required|string|max:255|unique:badges,name,' . $badge->id,
+            'description'   => 'nullable|string|max:500',
+            'icon'          => 'nullable|string|max:255',
+            'is_active'     => 'nullable|boolean',
+            'unlock_type'   => 'nullable|in:points_threshold,first_purchase,tier_reached,purchases_count,manual',
+            'unlock_points' => 'nullable|integer|min:0',
+            'unlock_count'  => 'nullable|integer|min:1',
+            'unlock_tier'   => 'nullable|exists:tiers,id',
         ]);
 
-        $unlockCondition = null;
-        if ($validated['unlock_condition_type']) {
-            $unlockCondition = [
-                'type' => $validated['unlock_condition_type'],
-            ];
-
-            if (in_array($validated['unlock_condition_type'], ['points_threshold', 'tier_reached', 'purchases_count'])) {
-                $unlockCondition[$validated['unlock_condition_type'] === 'tier_reached' ? 'tier_id' :
-                                 ($validated['unlock_condition_type'] === 'points_threshold' ? 'points' : 'count')]
-                    = $validated['unlock_condition_value'];
-            }
-        }
+        $unlockCondition = $this->buildUnlockCondition($validated);
 
         $badge->update([
-            'name' => $validated['name'],
-            'description' => $validated['description'],
-            'icon' => $validated['icon'] ?? $badge->icon,
+            'name'             => $validated['name'],
+            'description'      => $validated['description'] ?? null,
+            'icon'             => $validated['icon'] ?? $badge->icon,
             'unlock_condition' => $unlockCondition,
-            'is_active' => $validated['is_active'],
+            'is_active'        => (bool) ($validated['is_active'] ?? $badge->is_active),
         ]);
 
         return redirect()->route('admin.loyalty.badges.index')
             ->with('success', 'Badge atualizado com sucesso!');
+    }
+
+    /**
+     * Monta a condição de desbloqueio a partir dos campos da view.
+     */
+    private function buildUnlockCondition(array $data): ?array
+    {
+        $type = $data['unlock_type'] ?? null;
+
+        if (!$type || $type === 'manual') {
+            return null;
+        }
+
+        $condition = ['type' => $type];
+
+        if ($type === 'points_threshold') {
+            $condition['points'] = (int) ($data['unlock_points'] ?? 0);
+        } elseif ($type === 'purchases_count') {
+            $condition['count'] = (int) ($data['unlock_count'] ?? 1);
+        } elseif ($type === 'tier_reached') {
+            $condition['tier_id'] = (int) ($data['unlock_tier'] ?? 0);
+        }
+
+        return $condition;
     }
 
     /**
@@ -247,10 +261,25 @@ class AdminLoyaltyController extends Controller
     /**
      * Manage User Points
      */
-    public function managePoints(): View
+    public function managePoints(Request $request): View
     {
-        $users = User::orderBy('points', 'desc')->paginate(20);
-        return view('admin.loyalty.points.manage', compact('users'));
+        $query = User::with('tier')->orderBy('points', 'desc');
+
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%')
+                  ->orWhere('email', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        if ($request->filled('tier')) {
+            $query->where('tier_id', $request->tier);
+        }
+
+        $users = $query->paginate(20);
+        $tiers = Tier::orderBy('min_points')->get();
+
+        return view('admin.loyalty.points.manage', compact('users', 'tiers'));
     }
 
     /**
@@ -259,29 +288,18 @@ class AdminLoyaltyController extends Controller
     public function updateUserPoints(Request $request, User $user): RedirectResponse
     {
         $validated = $request->validate([
-            'points' => 'required|integer|min:-10000|max:1000000',
-            'reason' => 'required|string|max:255',
+            'points'      => 'required|integer|min:-100000|max:1000000|not_in:0',
+            'reason'      => 'required|in:bonus,adjustment,redemption',
             'description' => 'nullable|string|max:500',
         ]);
 
-        $currentPoints = $user->points;
-        $pointsChange = $validated['points'] - $currentPoints;
-
-        if ($pointsChange !== 0) {
-            $reason = $pointsChange > 0 ? 'bonus' : 'adjustment';
-
-            $this->loyaltyService->addPoints(
-                $user,
-                abs($pointsChange),
-                $reason,
-                null,
-                $validated['description'] ?? ($validated['reason'] ?? 'Ajuste manual de pontos')
-            );
-
-            if ($pointsChange < 0) {
-                $user->update(['points' => $currentPoints + $pointsChange]);
-            }
-        }
+        $this->loyaltyService->addPoints(
+            $user,
+            $validated['points'],
+            $validated['reason'],
+            null,
+            $validated['description'] ?? 'Ajuste manual de pontos pelo admin'
+        );
 
         return back()->with('success', 'Pontos do usuário atualizados com sucesso!');
     }
@@ -313,6 +331,173 @@ class AdminLoyaltyController extends Controller
         $reasons = PointsTransaction::select('reason')->distinct()->pluck('reason');
 
         return view('admin.loyalty.points.transactions', compact('transactions', 'reasons'));
+    }
+
+    // =========================================================================
+    // GERENCIAMENTO DE INDICAÇÕES
+    // =========================================================================
+
+    /**
+     * Listar todas as indicações
+     */
+    public function indexReferrals(Request $request): View
+    {
+        $query = Referral::with(['referrer', 'referred', 'order']);
+
+        if ($request->filled('referrer_id')) {
+            $query->where('referrer_id', $request->referrer_id);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('from_date')) {
+            $query->whereDate('created_at', '>=', $request->from_date);
+        }
+
+        if ($request->filled('to_date')) {
+            $query->whereDate('created_at', '<=', $request->to_date);
+        }
+
+        $referrals = $query->latest()->paginate(30);
+        $users = User::orderBy('name')->get(['id', 'name', 'email']);
+
+        $stats = [
+            'total'             => Referral::count(),
+            'pending'           => Referral::where('status', 'pending')->count(),
+            'approved'          => Referral::where('status', 'approved')->count(),
+            'paid'              => Referral::where('status', 'paid')->count(),
+            'total_commission'  => Referral::whereIn('status', ['approved', 'paid'])->sum('commission_amount'),
+        ];
+
+        return view('admin.loyalty.referrals.index', compact('referrals', 'users', 'stats'));
+    }
+
+    /**
+     * Formulário de criação de indicação
+     */
+    public function createReferral(): View
+    {
+        $users = User::orderBy('name')->get(['id', 'name', 'email', 'referral_code']);
+        $orders = Order::with('user')->latest()->get();
+        $defaultCommission = Setting::get('default_commission_percentage', '10.00');
+
+        return view('admin.loyalty.referrals.create', compact('users', 'orders', 'defaultCommission'));
+    }
+
+    /**
+     * Salvar nova indicação
+     */
+    public function storeReferral(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'referrer_id'           => 'required|exists:users,id',
+            'referred_id'           => 'nullable|exists:users,id|different:referrer_id',
+            'order_id'              => 'nullable|exists:orders,id',
+            'product_name'          => 'nullable|string|max:255',
+            'product_value'         => 'nullable|numeric|min:0',
+            'commission_percentage' => 'required|numeric|min:0|max:100',
+            'notes'                 => 'nullable|string|max:1000',
+        ]);
+
+        if (!empty($validated['product_value']) && !empty($validated['commission_percentage'])) {
+            $validated['commission_amount'] = round(
+                $validated['product_value'] * ($validated['commission_percentage'] / 100),
+                2
+            );
+        }
+
+        $referral = Referral::create($validated);
+
+        return redirect()->route('admin.loyalty.referrals.index')
+            ->with('success', "Indicação #{$referral->id} criada com sucesso!");
+    }
+
+    /**
+     * Formulário de edição de indicação
+     */
+    public function editReferral(Referral $referral): View
+    {
+        $users = User::orderBy('name')->get(['id', 'name', 'email', 'referral_code']);
+        $orders = Order::with('user')->latest()->get();
+
+        return view('admin.loyalty.referrals.edit', compact('referral', 'users', 'orders'));
+    }
+
+    /**
+     * Atualizar indicação
+     */
+    public function updateReferral(Request $request, Referral $referral): RedirectResponse
+    {
+        $validated = $request->validate([
+            'referrer_id'           => 'required|exists:users,id',
+            'referred_id'           => 'nullable|exists:users,id|different:referrer_id',
+            'order_id'              => 'nullable|exists:orders,id',
+            'product_name'          => 'nullable|string|max:255',
+            'product_value'         => 'nullable|numeric|min:0',
+            'commission_percentage' => 'required|numeric|min:0|max:100',
+            'status'                => 'required|in:pending,approved,paid,cancelled',
+            'notes'                 => 'nullable|string|max:1000',
+        ]);
+
+        if (!empty($validated['product_value']) && !empty($validated['commission_percentage'])) {
+            $validated['commission_amount'] = round(
+                $validated['product_value'] * ($validated['commission_percentage'] / 100),
+                2
+            );
+        }
+
+        if ($validated['status'] === 'approved' && $referral->status !== 'approved') {
+            $validated['approved_at'] = now();
+        }
+
+        if ($validated['status'] === 'paid' && $referral->status !== 'paid') {
+            $validated['paid_at'] = now();
+        }
+
+        $referral->update($validated);
+
+        return redirect()->route('admin.loyalty.referrals.index')
+            ->with('success', "Indicação #{$referral->id} atualizada com sucesso!");
+    }
+
+    /**
+     * Aprovar indicação rapidamente
+     */
+    public function approveReferral(Referral $referral): RedirectResponse
+    {
+        $referral->update([
+            'status'      => 'approved',
+            'approved_at' => now(),
+        ]);
+
+        return back()->with('success', "Indicação #{$referral->id} aprovada!");
+    }
+
+    /**
+     * Marcar indicação como paga
+     */
+    public function payReferral(Referral $referral): RedirectResponse
+    {
+        $referral->update([
+            'status'  => 'paid',
+            'paid_at' => now(),
+        ]);
+
+        return back()->with('success', "Indicação #{$referral->id} marcada como paga!");
+    }
+
+    /**
+     * Deletar indicação
+     */
+    public function destroyReferral(Referral $referral): RedirectResponse
+    {
+        $id = $referral->id;
+        $referral->delete();
+
+        return redirect()->route('admin.loyalty.referrals.index')
+            ->with('success', "Indicação #{$id} removida com sucesso!");
     }
 
     /**
@@ -368,5 +553,20 @@ class AdminLoyaltyController extends Controller
         };
 
         return response()->stream($callback, 200, $headers);
+    }
+
+    /**
+     * Salvar configurações gerais do sistema de fidelidade
+     */
+    public function updateSettings(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'default_commission_percentage' => 'required|numeric|min:0|max:100',
+        ]);
+
+        Setting::set('default_commission_percentage', number_format((float) $validated['default_commission_percentage'], 2, '.', ''));
+
+        return redirect()->route('admin.loyalty.dashboard')
+            ->with('success', 'Configurações salvas com sucesso.');
     }
 }

@@ -53,7 +53,7 @@
         .admin-sidebar .nav-link .fa-fw { width: 1.1rem; text-align: center; }
 
         /* Main */
-        .admin-main { margin-left: 240px; min-height: 100vh; display: flex; flex-direction: column; }
+        .admin-main { margin-left: 240px; min-height: 100vh; display: flex; flex-direction: column; width: 100%; }
 
         /* Topbar */
         .admin-topbar {
@@ -70,7 +70,7 @@
         .admin-topbar .breadcrumb { margin: 0; font-size: .82rem; }
 
         /* Content */
-        .admin-content { padding: 1.75rem 1.5rem; flex: 1; }
+        .admin-content { padding: .75rem 1rem; flex: 1; }
 
         /* Sidebar footer */
         .sidebar-footer {
@@ -106,17 +106,22 @@
             <span class="nav-section">Principal</span>
             <a href="{{ route('admin.loyalty.dashboard') }}"
                class="nav-link {{ request()->routeIs('admin.loyalty.dashboard') ? 'active' : '' }}">
-                <i class="fas fa-chart-line fa-fw"></i> Dashboard
+                <i class="fas fa-chart-line fa-fw"></i> Painel
             </a>
 
             <span class="nav-section">Fidelidade</span>
             <a href="{{ route('admin.loyalty.tiers.index') }}"
                class="nav-link {{ request()->routeIs('admin.loyalty.tiers.*') ? 'active' : '' }}">
-                <i class="fas fa-layer-group fa-fw"></i> Tiers
+                <i class="fas fa-layer-group fa-fw"></i> Níveis
             </a>
             <a href="{{ route('admin.loyalty.badges.index') }}"
                class="nav-link {{ request()->routeIs('admin.loyalty.badges.*') ? 'active' : '' }}">
-                <i class="fas fa-medal fa-fw"></i> Badges
+                <i class="fas fa-medal fa-fw"></i> Conquistas
+            </a>
+
+            <a href="{{ route('admin.loyalty.referrals.index') }}"
+               class="nav-link {{ request()->routeIs('admin.loyalty.referrals.*') ? 'active' : '' }}">
+                <i class="fas fa-users fa-fw"></i> Indicações
             </a>
 
             <span class="nav-section">Pontos</span>

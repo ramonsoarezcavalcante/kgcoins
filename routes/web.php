@@ -80,6 +80,7 @@ Route::middleware(['web'])->group(function () {
             Route::get('rewards', 'showRewards')->name('rewards');
             Route::post('claim-reward', 'claimReward')->name('claim');
             Route::get('referral', 'showReferral')->name('referral');
+            Route::get('benefits', 'showBenefits')->name('benefits');
             Route::get('export', 'exportData')->name('export');
         });
 
@@ -118,8 +119,23 @@ Route::middleware(['web'])->group(function () {
                 Route::get('transactions', 'viewTransactions')->name('transactions');
             });
 
+            // Referrals Management
+            Route::prefix('referrals')->name('referrals.')->group(function () {
+                Route::get('/', 'indexReferrals')->name('index');
+                Route::get('create', 'createReferral')->name('create');
+                Route::post('/', 'storeReferral')->name('store');
+                Route::get('{referral}/edit', 'editReferral')->name('edit');
+                Route::put('{referral}', 'updateReferral')->name('update');
+                Route::post('{referral}/approve', 'approveReferral')->name('approve');
+                Route::post('{referral}/pay', 'payReferral')->name('pay');
+                Route::delete('{referral}', 'destroyReferral')->name('destroy');
+            });
+
             // Reports
             Route::get('export', 'exportReport')->name('export');
+
+            // Settings
+            Route::post('settings', 'updateSettings')->name('settings.update');
         });
     });
 });

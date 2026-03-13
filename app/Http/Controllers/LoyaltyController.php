@@ -195,6 +195,22 @@ class LoyaltyController extends Controller
     }
 
     /**
+     * Show benefits page with all tier info.
+     */
+    public function showBenefits(): View
+    {
+        $user = auth()->user();
+        $allTiers = Tier::orderBy('min_points')->get();
+        $userTier = $user->tier;
+
+        return view('loyalty.benefits', [
+            'allTiers' => $allTiers,
+            'userTier' => $userTier,
+            'userPoints' => $user->points,
+        ]);
+    }
+
+    /**
      * Export loyalty data as PDF or CSV.
      */
     public function exportData(Request $request)

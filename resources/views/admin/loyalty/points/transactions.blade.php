@@ -3,7 +3,7 @@
 @section('title', 'Admin - Histórico de Transações')
 
 @section('content')
-<div class="container-fluid my-4">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col-lg-12">
             <h1 class="h2">📊 Histórico de Transações de Pontos</h1>

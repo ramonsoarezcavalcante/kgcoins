@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -103,7 +104,23 @@ class User extends Authenticatable
     public function generateReferralCode(): void
     {
         $this->update([
-            'referral_code' => 'REF-' . strtoupper(str_random(8)),
+            'referral_code' => 'REF-' . strtoupper(Str::random(8)),
         ]);
+    }
+
+    /**
+     * Indicações feitas por este usuário (como indicador).
+     */
+    public function referralsMade(): HasMany
+    {
+        return $this->hasMany(Referral::class, 'referrer_id');
+    }
+
+    /**
+     * Indicação em que este usuário foi o indicado.
+     */
+    public function referralReceived(): HasMany
+    {
+        return $this->hasMany(Referral::class, 'referred_id');
     }
 }

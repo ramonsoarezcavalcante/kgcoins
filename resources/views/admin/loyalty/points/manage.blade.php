@@ -3,7 +3,7 @@
 @section('title', 'Admin - Gerenciar Pontos')
 
 @section('content')
-<div class="container-fluid my-4">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col-lg-12">
             <h1 class="h2">💰 Gerenciar Pontos dos Usuários</h1>
@@ -102,6 +102,7 @@
                                                 </div>
                                                 <form action="{{ route('admin.loyalty.points.update', $user) }}" method="POST">
                                                     @csrf
+                                                    @method('PUT')
                                                     <div class="modal-body">
                                                         <div class="alert alert-info">
                                                             <small>
@@ -124,8 +125,6 @@
                                                                 <option value="bonus">Bônus Manual</option>
                                                                 <option value="adjustment">Ajuste Manual</option>
                                                                 <option value="redemption">Resgate</option>
-                                                                <option value="correction">Correção</option>
-                                                                <option value="compensation">Compensação</option>
                                                             </select>
                                                         </div>
 

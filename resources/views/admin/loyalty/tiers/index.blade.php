@@ -3,14 +3,14 @@
 @section('title', 'Admin - Gerenciar Tiers')
 
 @section('content')
-<div class="container-fluid my-4">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col-lg-8">
-            <h1 class="h2">⭐ Gerenciar Tiers de Fidelidade</h1>
+            <h1 class="h2">⭐ Gerenciar Níveis de Fidelidade</h1>
         </div>
         <div class="col-lg-4 text-end">
             <a href="{{ route('admin.loyalty.tiers.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Novo Tier
+                <i class="fas fa-plus"></i> Novo Nível
             </a>
         </div>
     </div>
@@ -73,9 +73,9 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc;"></i>
-                            <p class="text-muted mt-3">Nenhum tier criado ainda</p>
+                            <p class="text-muted mt-3">Nenhum nível criado ainda</p>
                             <a href="{{ route('admin.loyalty.tiers.create') }}" class="btn btn-primary mt-3">
-                                Criar o Primeiro Tier
+                                Criar o Primeiro Nível
                             </a>
                         </div>
                     @endif

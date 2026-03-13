@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin - Gerenciar Badges')
+@section('title', 'Admin - Gerenciar Conquistas')
 
 @section('content')
-<div class="container-fluid my-4">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col-lg-8">
-            <h1 class="h2">🎖️ Gerenciar Conquistas (Badges)</h1>
+            <h1 class="h2">🎖️ Gerenciar Conquistas</h1>
         </div>
         <div class="col-lg-4 text-end">
             <a href="{{ route('admin.loyalty.badges.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Nova Badge
+                <i class="fas fa-plus"></i> Nova Conquista
             </a>
         </div>
     </div>
@@ -24,7 +24,7 @@
                             <table class="table table-hover">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>Icon</th>
+                                        <th>Ícone</th>
                                         <th>Nome</th>
                                         <th>Descrição</th>
                                         <th>Condição de Desbloqueio</th>
@@ -41,8 +41,18 @@
                                         <td><small>{{ substr($badge->description, 0, 50) }}{{ strlen($badge->description) > 50 ? '...' : '' }}</small></td>
                                         <td>
                                             <small>
+                                                @php
+                                                    $typeLabels = [
+                                                        'points_threshold' => 'Limite de Pontos',
+                                                        'purchases_count'  => 'Nº de Compras',
+                                                        'first_purchase'   => 'Primeira Compra',
+                                                        'tier_reached'     => 'Atingir Nível',
+                                                        'manual'           => 'Manual',
+                                                    ];
+                                                    $type = $badge->unlock_condition['type'] ?? 'manual';
+                                                @endphp
                                                 @if($badge->unlock_condition)
-                                                    {{ ucfirst($badge->unlock_condition['type'] ?? 'Manual') }}
+                                                    {{ $typeLabels[$type] ?? ucfirst($type) }}
                                                     @if(isset($badge->unlock_condition['points']))
                                                         ({{ $badge->unlock_condition['points'] }} pts)
                                                     @endif
@@ -81,9 +91,9 @@
                     @else
                         <div class="text-center py-5">
                             <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc;"></i>
-                            <p class="text-muted mt-3">Nenhuma badge criada ainda</p>
+                            <p class="text-muted mt-3">Nenhuma conquista criada ainda</p>
                             <a href="{{ route('admin.loyalty.badges.create') }}" class="btn btn-primary mt-3">
-                                Criar a Primeira Badge
+                                Criar a Primeira Conquista
                             </a>
                         </div>
                     @endif

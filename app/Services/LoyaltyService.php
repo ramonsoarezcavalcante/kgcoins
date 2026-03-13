@@ -121,12 +121,21 @@ class LoyaltyService
             return false;
         }
 
-        return match ($condition['type'] ?? null) {
+        $type = $condition['type'] ?? null;
+
+        if ($type === 'tier_reached') {
+            if (!$user->tier || empty($condition['tier_id'])) {
+                return false;
+            }
+            $requiredTier = Tier::find($condition['tier_id']);
+            return $requiredTier && $user->tier->min_points >= $requiredTier->min_points;
+        }
+
+        return match ($type) {
             'points_threshold' => $user->points >= ($condition['points'] ?? 0),
-            'first_purchase' => $user->orders()->where('status', 'delivered')->count() >= 1,
-            'tier_reached' => $user->tier_id && $user->tier_id >= ($condition['tier_id'] ?? 0),
-            'purchases_count' => $user->orders()->where('status', 'delivered')->count() >= ($condition['count'] ?? 1),
-            default => false,
+            'first_purchase'   => $user->orders()->where('status', 'delivered')->count() >= 1,
+            'purchases_count'  => $user->orders()->where('status', 'delivered')->count() >= ($condition['count'] ?? 1),
+            default            => false,
         };
     }
 
