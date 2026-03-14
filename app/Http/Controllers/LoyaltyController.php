@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\PointsTransaction;
+use App\Models\Referral;
 use App\Models\Tier;
 use App\Services\LoyaltyService;
 use Illuminate\Http\Request;
@@ -44,6 +45,24 @@ class LoyaltyController extends Controller
             $progressPercentage = ($pointsInRange / $totalRange) * 100;
         }
 
+        $recentReferrals = Referral::where('referrer_id', $user->id)
+            ->with('referred:id,name,email')
+            ->latest()
+            ->limit(5)
+            ->get();
+
+        $withdrawalBalance = Referral::where('referrer_id', $user->id)
+            ->where('status', 'pending')
+            ->sum('commission_amount');
+
+        $approvedBalance = Referral::where('referrer_id', $user->id)
+            ->where('status', 'approved')
+            ->sum('commission_amount');
+
+        $totalPaid = Referral::where('referrer_id', $user->id)
+            ->where('status', 'paid')
+            ->sum('commission_amount');
+
         return view('loyalty.dashboard', [
             'summary' => $summary,
             'recentTransactions' => $recentTransactions,
@@ -51,6 +70,10 @@ class LoyaltyController extends Controller
             'allTiers' => $allTiers,
             'nextTier' => $nextTier,
             'progressPercentage' => $progressPercentage,
+            'recentReferrals' => $recentReferrals,
+            'withdrawalBalance' => $withdrawalBalance,
+            'approvedBalance' => $approvedBalance,
+            'totalPaid' => $totalPaid,
         ]);
     }
 
@@ -90,31 +113,30 @@ class LoyaltyController extends Controller
     {
         $user = auth()->user();
 
-        // Example rewards structure - you can expand this
         $rewards = [
             [
                 'id' => 1,
-                'name' => 'R$10 Discount',
+                'name' => 'Desconto de R$10',
                 'points_required' => 100,
-                'description' => 'Get R$10 off on your next purchase',
+                'description' => 'Ganhe R$10 de desconto na sua próxima compra',
             ],
             [
                 'id' => 2,
-                'name' => 'R$25 Discount',
+                'name' => 'Desconto de R$25',
                 'points_required' => 250,
-                'description' => 'Get R$25 off on your next purchase',
+                'description' => 'Ganhe R$25 de desconto na sua próxima compra',
             ],
             [
                 'id' => 3,
-                'name' => 'Free Shipping',
+                'name' => 'Frete Grátis',
                 'points_required' => 150,
-                'description' => 'Free shipping on your next order',
+                'description' => 'Frete gratuito no seu próximo pedido',
             ],
             [
                 'id' => 4,
-                'name' => 'R$50 Discount',
+                'name' => 'Desconto de R$50',
                 'points_required' => 500,
-                'description' => 'Get R$50 off on your next purchase',
+                'description' => 'Ganhe R$50 de desconto na sua próxima compra',
             ],
         ];
 

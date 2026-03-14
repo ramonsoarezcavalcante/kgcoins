@@ -25,11 +25,11 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div style="background: #13141e; padding: 3rem 0; min-height: 60vh;">
+    <div style="background: #13141e; padding: 4rem 0; min-height: 60vh;">
         <div class="container">
 
             <!-- POINTS + TIER CARDS -->
-            <div class="row g-4 mb-4">
+            <div class="row g-4 mb-5">
 
                 <!-- Saldo de Pontos -->
                 <div class="col-lg-6">
@@ -95,29 +95,42 @@
             </div>
 
             <!-- QUICK STATS -->
-            <div class="row g-3 mb-4">
-                <div class="col-md-4">
-                    <div class="loyalty-card text-center">
-                        <div style="font-size:2rem; color:#8878F5; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['total_orders'] }}</div>
-                        <p style="color:#64748b; font-size:0.8rem; margin:6px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Compras Realizadas</p>
+            <div class="row g-4 mb-5">
+                <div class="col-md-3">
+                    <div class="loyalty-card text-center" style="padding: 1.75rem 1.25rem;">
+                        <div style="font-size:2.2rem; color:#8878F5; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['total_orders'] }}</div>
+                        <p style="color:#64748b; font-size:0.8rem; margin:10px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Compras Realizadas</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="loyalty-card text-center">
-                        <div style="font-size:2rem; color:#f97316; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['badges_count'] }}</div>
-                        <p style="color:#64748b; font-size:0.8rem; margin:6px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Conquistas</p>
+                <div class="col-md-3">
+                    <div class="loyalty-card text-center" style="padding: 1.75rem 1.25rem;">
+                        <div style="font-size:2.2rem; color:#f97316; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['badges_count'] }}</div>
+                        <p style="color:#64748b; font-size:0.8rem; margin:10px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Conquistas</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="loyalty-card text-center">
-                        <div style="font-size:2rem; color:#f59e0b; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['discount_percentage'] }}%</div>
-                        <p style="color:#64748b; font-size:0.8rem; margin:6px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Desconto Ativo</p>
+                <div class="col-md-3">
+                    <div class="loyalty-card text-center" style="padding: 1.75rem 1.25rem;">
+                        <div style="font-size:2.2rem; color:#f59e0b; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">{{ $summary['discount_percentage'] }}%</div>
+                        <p style="color:#64748b; font-size:0.8rem; margin:10px 0 0; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Desconto Ativo</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="loyalty-card text-center" style="border: 1px solid rgba(52,211,153,0.4); background: linear-gradient(135deg, #0f2a20, #1a1c28);">
+                        <div style="font-size:1.6rem; color:#34d399; font-family:'Orbitron',sans-serif; font-weight:900; line-height:1;">
+                            R$ {{ number_format($withdrawalBalance, 2, ',', '.') }}
+                        </div>
+                        <p style="color:#64748b; font-size:0.8rem; margin:6px 0 4px; font-family:'Exo',sans-serif; text-transform:uppercase; letter-spacing:1px;">Pendente de Aprovação</p>
+                        @if($withdrawalBalance > 0)
+                        <span style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; padding:2px 8px; border-radius:20px; font-size:0.68rem; font-family:'Exo',sans-serif; font-weight:700;">
+                            <i class="ph ph-clock"></i> Aguardando aprovação
+                        </span>
+                        @endif
                     </div>
                 </div>
             </div>
 
             <!-- ACTION BUTTONS -->
-            <div class="row g-3 mb-4">
+            <div class="row g-3 mb-5">
                 <div class="col-6 col-md-3">
                     <a href="{{ route('loyalty.transactions') }}" class="btn-neon-cyan d-flex align-items-center justify-content-center gap-2 text-decoration-none w-100" style="padding: 12px;">
                         <i class="ph ph-clock-countdown"></i> Histórico
@@ -142,7 +155,7 @@
 
             <!-- BADGES -->
             @if($badges->count() > 0)
-            <div class="mb-4">
+            <div class="mb-5">
                 <div class="d-flex align-items-center gap-3 mb-3">
                     <div class="section-line mb-0" style="margin-bottom:0 !important;"></div>
                     <h2 class="section-title-gaming mb-0" style="font-size:1.3rem; white-space:nowrap;">🎖️ Suas <span>Conquistas</span></h2>
@@ -163,10 +176,132 @@
                 </div>
             </div>
             @endif
+            <!-- RECENT REFERRALS -->
+            <div class="mt-0 mb-5">
+                <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="section-line mb-0" style="margin-bottom:0 !important;"></div>
+                        <h2 class="section-title-gaming mb-0" style="font-size:1.3rem; white-space:nowrap;">
+                            <i class="ph ph-users-three" style="color:#34d399;"></i> Indicações <span>Recentes</span>
+                        </h2>
+                    </div>
+                    <a href="{{ route('loyalty.referral') }}" class="btn-neon-cyan" style="font-size:0.75rem; padding:6px 14px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                        Convidar Amigos <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
 
+                <!-- Saldo resumo -->
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <div class="loyalty-card d-flex align-items-center gap-3" style="border:1px solid rgba(52,211,153,0.35); background:linear-gradient(135deg,#0f2a20,#1a1c28);">
+                            <div style="width:46px;height:46px;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="ph ph-wallet" style="font-size:1.5rem;color:#34d399;"></i>
+                            </div>
+                            <div>
+                                <p style="color:#64748b;font-size:0.75rem;font-family:'Exo',sans-serif;text-transform:uppercase;letter-spacing:1px;margin:0;">Saldo disponivel para saque</p>
+                                <p style="font-family:'Orbitron',sans-serif;font-weight:900;color:#34d399;font-size:1.4rem;margin:0;line-height:1.2;">
+                                    R$ {{ number_format($approvedBalance, 2, ',', '.') }}
+                                </p>
+                                @if($approvedBalance > 0)
+                                <span style="color:#34d399;font-size:0.72rem;font-family:'Exo',sans-serif;">
+                                    <i class="ph ph-check-circle"></i> Aprovado — aguardando solicitacao
+                                </span>
+                                @else
+                                <span style="color:#64748b;font-size:0.72rem;font-family:'Exo',sans-serif;">Sem saldo aprovado no momento</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="loyalty-card d-flex align-items-center gap-3" style="border:1px solid rgba(139,92,246,0.35);">
+                            <div style="width:46px;height:46px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="ph ph-money" style="font-size:1.5rem;color:#8878F5;"></i>
+                            </div>
+                            <div>
+                                <p style="color:#64748b;font-size:0.75rem;font-family:'Exo',sans-serif;text-transform:uppercase;letter-spacing:1px;margin:0;">Total ja recebido</p>
+                                <p style="font-family:'Orbitron',sans-serif;font-weight:900;color:#8878F5;font-size:1.4rem;margin:0;line-height:1.2;">
+                                    R$ {{ number_format($totalPaid, 2, ',', '.') }}
+                                </p>
+                                <span style="color:#64748b;font-size:0.72rem;font-family:'Exo',sans-serif;">Comissoes pagas ate o momento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loyalty-card" style="padding:0; overflow:hidden;">
+                    <div class="table-responsive">
+                        <table class="table mb-0" style="background:transparent;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid rgba(52,211,153,0.2);">
+                                    <th style="background:#1a1c28; color:#34d399; font-family:'Exo',sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; border:none; padding:14px 20px; font-weight:700;">Data</th>
+                                    <th style="background:#1a1c28; color:#34d399; font-family:'Exo',sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; border:none; padding:14px 20px; font-weight:700;">Indicado</th>
+                                    <th style="background:#1a1c28; color:#34d399; font-family:'Exo',sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; border:none; padding:14px 20px; font-weight:700;">Produto</th>
+                                    <th style="background:#1a1c28; color:#34d399; font-family:'Exo',sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; border:none; padding:14px 20px; font-weight:700;">Comissao</th>
+                                    <th style="background:#1a1c28; color:#34d399; font-family:'Exo',sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; border:none; padding:14px 20px; font-weight:700;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($recentReferrals as $referral)
+                                <tr style="border-bottom: 1px solid rgba(52,211,153,0.07); transition: background 0.2s;"
+                                    onmouseover="this.style.background='rgba(52,211,153,0.04)'"
+                                    onmouseout="this.style.background='transparent'">
+                                    <td style="color:#94a3b8; font-size:0.82rem; border:none; padding:14px 20px;">
+                                        {{ $referral->created_at->format('d/m/Y H:i') }}
+                                    </td>
+                                    <td style="border:none; padding:14px 20px;">
+                                        <div style="color:#f1f5f9; font-size:0.85rem; font-family:'Exo',sans-serif; font-weight:600;">
+                                            {{ $referral->referred->name ?? 'Usuario removido' }}
+                                        </div>
+                                        <div style="color:#64748b; font-size:0.72rem;">{{ $referral->referred->email ?? '' }}</div>
+                                    </td>
+                                    <td style="color:#94a3b8; font-size:0.82rem; border:none; padding:14px 20px; max-width:160px;">
+                                        <span style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            {{ $referral->product_name ?? '-' }}
+                                        </span>
+                                        @if($referral->product_value)
+                                        <span style="color:#64748b; font-size:0.72rem;">R$ {{ number_format($referral->product_value, 2, ',', '.') }}</span>
+                                        @endif
+                                    </td>
+                                    <td style="border:none; padding:14px 20px; font-family:'Exo',sans-serif; font-weight:800; font-size:0.95rem; color:#34d399;">
+                                        R$ {{ number_format($referral->commission_amount, 2, ',', '.') }}
+                                        <span style="display:block; color:#64748b; font-size:0.7rem; font-weight:400;">{{ $referral->commission_percentage }}%</span>
+                                    </td>
+                                    <td style="border:none; padding:14px 20px;">
+                                        @php
+                                            $statusMap = [
+                                                'pending'   => ['label' => 'Pendente',  'color' => '#f59e0b', 'bg' => 'rgba(245,158,11,0.15)',  'border' => 'rgba(245,158,11,0.35)'],
+                                                'approved'  => ['label' => 'Aprovado',  'color' => '#34d399', 'bg' => 'rgba(52,211,153,0.15)',   'border' => 'rgba(52,211,153,0.35)'],
+                                                'paid'      => ['label' => 'Pago',       'color' => '#8878F5', 'bg' => 'rgba(136,120,245,0.15)', 'border' => 'rgba(136,120,245,0.35)'],
+                                                'cancelled' => ['label' => 'Cancelado', 'color' => '#f87171', 'bg' => 'rgba(248,113,113,0.15)',  'border' => 'rgba(248,113,113,0.35)'],
+                                            ];
+                                            $s = $statusMap[$referral->status] ?? $statusMap['pending'];
+                                        @endphp
+                                        <span style="background:{{ $s['bg'] }}; border:1px solid {{ $s['border'] }}; color:{{ $s['color'] }}; padding:3px 10px; border-radius:20px; font-size:0.72rem; font-family:'Exo',sans-serif; font-weight:700;">
+                                            {{ $s['label'] }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="5" style="text-align:center; color:#64748b; padding:2.5rem; border:none; font-family:'Exo',sans-serif;">
+                                        <i class="ph ph-users-three" style="font-size:2.2rem; display:block; margin-bottom:8px; opacity:0.4; color:#34d399;"></i>
+                                        Voce ainda nao realizou nenhuma indicacao
+                                        <div style="margin-top:10px;">
+                                            <a href="{{ route('loyalty.referral') }}" class="btn-neon-cyan" style="font-size:0.78rem; padding:6px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                                                <i class="ph ph-share-network"></i> Compartilhar meu link
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <!-- RECENT TRANSACTIONS -->
             @if($recentTransactions)
-            <div>
+            <div class="mt-0">
                 <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                     <div class="d-flex align-items-center gap-3">
                         <div class="section-line mb-0" style="margin-bottom:0 !important;"></div>
@@ -222,6 +357,8 @@
                 </div>
             </div>
             @endif
+
+
 
         </div>
     </div>
